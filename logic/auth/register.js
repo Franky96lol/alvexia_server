@@ -4,8 +4,8 @@ const helper = require(config.LOGIC + "/helper.js");
 const idGenerator = require(config.LOGIC + "/id.generator.js");
 const bcrypt = require("bcryptjs");
 
-//funcion de registro de usuario
-function register(req, res, next) {
+
+const register = (req, res, next) => {
 
   let username, email, password, rpassword, token;
   try {
@@ -46,7 +46,7 @@ function register(req, res, next) {
       status: false,
       message: "Esta cuenta se encuentra en uso.\nIntente otro nombre."
     };
-  //si la cuenta no existe procedemos a verificar que los passwords coincidan y tengan la longitud minima
+
   if (password.length < 8)
     return {
       status: false,
@@ -57,89 +57,79 @@ function register(req, res, next) {
       status: false,
       message: "Las contraseñas insertadas no coinciden."
     };
-  //si las contraseñas coinciden y tienen la longitud minima verificamos que el correo sea un correo valido
+
   if (!validateEmail(email))
     return {
       status: false,
       message: "El correo insertado no posee un formato valido."
     };
-  //si es un correo valido verificamos que ya no exista una cuenta con ese correo
+
   if (existsEmail(email))
     return {
       status: false,
       message: "El correo insertado ya se encuentra en uso. Intente otro."
     };
-  //si todo es correcto pasamos los valores a el modelo de la cuenta
-  let char = /^[a-zA-Z0-9]+$/;
+
+  const char = /^[a-zA-Z0-9]+$/;
   if (!char.test(username)) {
     return {
       status: false,
-      message: "El nombre de usuarios posee caracteres invalidos."
+      message: "El nombre de usuario posee caracteres invalidos. Solo puede usar caracteres de la a-Z y 0-9."
     };
   }
-  //modelo basico de cuenta de usuario
+  
   const account = {
     id: "",
     username: "",
     nickname: "",
     email: "",
     password: "",
-    clan: "",
+    guild: "",
     level: 1,
     xp: 0,
     gold: 0,
     gems: 0,
-    division: 0,
-    stars: 0,
-    stars_salve: 100,
-    stars_rise: 0,
-    credit: 100,
     color: "",
     friend: {
-      list: [],
-      request: [],
-      invites: []
+        list: [],
+        request: [],
+        invites: []
     },
     mails: [],
-    matchs: [],
     inventory: [],
-    bonus: {
-      daily_chest: 0,
-      star_chest: {
-        stars: 0,
-        time: 0
-      },
-      week_login: {
-        day : 0,
-        time : 0
-      },
-      hourly_bonus : {
-        time : 0
-      }
-    }, 
     attributes : {
-      points : 0,
-      attack : 0,
-      attack_speed : 0,
-      crit : 0,
-      reload_speed : 0,
-      armor : 0,
-      hp : 0,
-      move_speed : 0
+        points : 0,
+        phy_attack : 0,
+        mgc_attack : 0,
+        attack_speed : 0,
+        crit : 0,
+        dodge : 0,
+        phy_armor : 0,
+        mgc_armor : 0,
+        hp : 0,
+        hp_reg : 0,
+        mp : 0,
+        mp_reg : 0,
+        move_speed : 0
     },
     equiped: {
-      first_weapon : "na",
-      second_weapon : "na",
-      armor : "na",
-      boots : "na",
-      skin: "na"
+        first_hand : "na",
+        second_hand : "na",
+        shoulders : "na",
+        neck : "na",
+        trinket : "na",
+        chest : "na",
+        gloves : "na"
+        ring : "na",
+        bracers : "na",
+        boots : "na",
+        skin: "na",
+        mount : "na"
     },
-    isOnRoom : false,
-    isFindingMatch: false,
-    isPlaying: false,
-    firstEnter: false,
+    isOnCombat : false,
+    isOnMenu : false,
     suscribed: false,
-    verified: false, //cuenta verificada (por defecto false)
+    verified: false,
     acclevel: 1 //0 = baneado , 1 = usuario regular , 2 = maestro , 3 = moderador , 4 = admin
   };
   account.id = idGenerator(12); //generamos el id unico de 12 caracteres alfanumericos
