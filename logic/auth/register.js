@@ -1,6 +1,6 @@
 const config = require("../../config.js");
 const fs = require("fs");
-const uid = require(config.LOGIC + "uid.js");
+const uid = require(config.LOGIC + "/uid.js");
 const bcrypt = require("bcryptjs");
 
 /* Funtion register
