@@ -1,6 +1,5 @@
 const config = require("../../config.js");
 const fs = require("fs");
-const helper = require(config.LOGIC + "/helper.js");
 const idGenerator = require(config.LOGIC + "/id.generator.js");
 const bcrypt = require("bcryptjs");
 
@@ -149,7 +148,7 @@ const register = (req, res, next) => {
 
 
     try {
-        helper.writeFile(config.DB + "/accounts/" + username + ".json", account);
+        global.users[username] = account;
 
         setEmail(email);
         const nodemailer = require("nodemailer");
@@ -205,7 +204,7 @@ const validateEmail = (email) => {
 }
 
 const existsEmail = (_email) => {
-    let emails = helper.readFile(config.DB + "/emails.json");
+    let emails = fs.readFileSync(config.DB + "/emails.json" , "utf-8");
 
     for (let email of emails) {
         if (email == _email) return true;
@@ -214,10 +213,10 @@ const existsEmail = (_email) => {
 }
 
 const setEmail = (_email) => {
-    let emails = helper.readFile(config.DB + "/emails.json");
+    let emails = fs.readFileSync(config.DB + "/emails.json" , "utf-8");
 
     emails.push(_email);
-    helper.writeFile(config.DB + "/emails.json", emails);
+    fs.writeFile(config.DB + "/emails.json", emails , "utf-8");
 }
 
 module.exports = register;
