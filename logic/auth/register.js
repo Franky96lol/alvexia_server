@@ -273,8 +273,8 @@ const validateEmail = (email) => {
 }
 
 const existsEmail = (_email) => {
-    let emails = fs.readFileSync(config.DB + "/emails.json",
-        "utf-8");
+    let emails = JSON.parse(fs.readFileSync(config.DB + "/emails.json",
+        "utf-8"));
 
     for (let email of emails) {
         if (email == _email) return true;
@@ -283,10 +283,10 @@ const existsEmail = (_email) => {
 }
 
 const setEmail = (_email) => {
-    let emails = fs.readFileSync(config.DB + "/emails.json", "utf-8");
+    let emails = JSON.parse(fs.readFileSync(config.DB + "/emails.json", "utf-8"));
 
     emails.push(_email);
-    fs.writeFile(config.DB + "/emails.json", emails, "utf-8");
+    fs.writeFile(config.DB + "/emails.json", JSON.stringify(emails), "utf-8");
 }
 
 module.exports = register;
