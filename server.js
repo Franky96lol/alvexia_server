@@ -21,7 +21,9 @@ app.use(bodyParser.json());
 
 /* Loading assets */
 console.time("Users loaded in");
-global.users = loader.users();
+const lusers = loader.users();
+global.users = lusers == undefined ? [] : lusers;
+lusers = null;
 console.timeEnd("Users loaded in")
 
 /* Express router */
