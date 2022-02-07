@@ -1,6 +1,6 @@
 const config = require("../../config.js");
 const fs = require("fs");
-const idGenerator = require(config.LOGIC + "/id.generator.js");
+const uid = require(config.LOGIC + "uid.js");
 const bcrypt = require("bcryptjs");
 
 
@@ -139,7 +139,7 @@ const register = (req, res, next) => {
         verified: false,
         acclevel: 1 //0 = baneado , 1 = usuario regular , 2 = maestro , 3 = moderador , 4 = admin
     };
-    account.id = idGenerator(12);
+    account.id = uid.alphanumerical(12);
     account.username = username;
     account.nickname = "apj_" + idGenerator(6);
     account.color = generateColor();
