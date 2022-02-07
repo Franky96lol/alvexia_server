@@ -161,6 +161,12 @@ const register = (req, res) => {
             b7 : "na",
             b8 : "na"
         },
+        status : {
+            hp : 0,
+            mp : 0,
+            pbuff : [],
+            nbuff : []
+        }
         attributes: {
             points: 0,
             phy_attack: 0,
