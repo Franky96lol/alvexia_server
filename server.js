@@ -20,7 +20,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); 
 
 /* Loading assets */
-
+console.time("Users loaded in");
+global.users = loader.users();
+console.timeEnd("Users loaded in")
 
 /* Express router */
 app.use("/", router); 
