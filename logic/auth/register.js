@@ -159,8 +159,11 @@ const register = (req, res) => {
             skin: "na",
             mount: "na"
         },
+        isOnline: false,
+        lastTimeOnline: new Date().getTime(),
         isOnCombat: false,
         isOnMenu: false,
+        isTrading: false,
         suscribed: false,
         verified: false,
         acclevel: 1 //0 = baneado , 1 = usuario regular , 2 = maestro , 3 = moderador , 4 = admin
