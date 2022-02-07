@@ -251,7 +251,7 @@ const register = (req, res) => {
     } catch (err) {
         console.log(err);
         res.json({
-            status: "error",
+            status: false,
             message:
             "Ups! \nA ocurrido un error.\nSi este error persite , por favor reportelo.",
             error: err
