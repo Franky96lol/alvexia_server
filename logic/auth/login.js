@@ -64,7 +64,7 @@ const login = (req, res) => {
     }
     res.json({
         status: true,
-        message: authenticator.generateToken(account.id)
+        message: authenticator.generate(account.id)
     });
 }
 
