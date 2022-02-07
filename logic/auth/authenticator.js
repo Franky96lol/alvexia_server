@@ -1,1 +1,27 @@
-/*Authenticator*/
+const config = require("../../config.js");
+
+const jwt = require("jsonwebtoken");
+
+const generateToken = (_id) => {
+    if (_id == null || _id == undefined) return null;
+    return jwt.sign({
+        id: _id
+    }, config.TOKEN.secret, {
+        expiresIn: config.TOKEN.expire
+    });
+}
+
+const verifyToken = (_token) => {
+    let token;
+
+    if (_token != undefined) token = _token;
+    if (token == null || token == undefined) return false;
+    return jwt.verify(token, config.TOKEN.secret, err => {
+        if (err) return false; 
+        return jwt.decode(token).id; 
+    });
+}
+
+module.exports = {
+    generate, verify
+};
