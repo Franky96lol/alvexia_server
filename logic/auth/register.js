@@ -120,11 +120,7 @@ const register = (req, res) => {
         guild: "",
         level: 1,
         xp: 0,
-        pos : {
-            map : "1_1",
-            x : 0,
-            y : 0
-        }
+        pos : config.PSTART,
         skills : {
             melee : {
                 level : 1,
@@ -148,6 +144,7 @@ const register = (req, res) => {
             invites: []
         },
         mails: [],
+        bags : 2,
         inventory: [],
         spells : {
             b1 : "na",
