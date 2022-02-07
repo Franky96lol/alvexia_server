@@ -7,6 +7,6 @@ router.post("/register", (req , res) => register(req , res));
 
 router.post("/login" , (req , res) => login(req , res));
 
-router.get("/verify/:user/:id" , (req , res) => res.json(verifyMail(req ,res)));
+router.get("/verify/:user/:id" , (req , res) => verifyMail(req ,res));
 
 module.exports = router;
