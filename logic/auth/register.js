@@ -16,7 +16,7 @@ const register = (req, res) => {
         email = req.body.email;
         password = req.body.password;
         rpassword = req.body.rpassword;
-        _package = req.body._package;
+        token = req.body.token;
     } catch (err) {
         res.json({
             status: false,
@@ -26,7 +26,7 @@ const register = (req, res) => {
         });
     }
 
-    if (_package != config._PACKAGE)
+    if (token != config.APPTOKEN)
         res.json({
         status: false,
         message: "Esta usando una aplicación obsoleta o de terceros. Verifique."
