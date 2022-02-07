@@ -1,26 +1,24 @@
 const config = require("../../config.js");
-const helper = require(config.LOGIC + "/helper.js");
 const fs = require("fs");
 
-function verifyMail(req, res) {
+const verifyMail = (req, res) => {
   if (!req.params && !req.params.user && !req.param.id) {
+      res.json({status : false , message : "error"});
     return;
   }
   let username = req.params.user;
   let id = req.params.id;
 
-  if (!fs.existsSync(config.DB + "/accounts/" + username + ".json")) {
-    return { message: "No exist" };
+  if (global.users[username] == undefined) {
+    res.json({ status : false ,message: "No exist" });
+    return;
   }
 
-  let acc = helper.readFile(config.DB + "/accounts/" + username + ".json");
-  if (acc.verified == true) return { message: "already verified" };
-  if (acc.id != id) return { message: "wrong url" };
-  acc.verified = true;
-  acc.subscribed = true;
-
-  helper.writeFile(config.DB + "/accounts/" + username + ".json", acc);
-  return { message: "verified" };
+  if (global.users[username].verified == true) return { message: "already verified" };
+  if (global.users[username].id != id){ res.json({ message: "wrong url" })};
+  global.users[username].verified = true;
+  global.users[username].subscribed = true;
+  res.json({status : true , message: "verified" });
 }
 
 module.exports = verifyMail;
