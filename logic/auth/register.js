@@ -120,6 +120,20 @@ const register = (req, res) => {
         guild: "",
         level: 1,
         xp: 0,
+        skills : {
+            melee : {
+                level : 1,
+                xp : 0
+            },
+            range : {
+                level : 1,
+                xp : 0
+            },
+            magic : {
+                level : 1,
+                xp : 0
+            }
+        },
         gold: 0,
         gems: 0,
         color: "",
@@ -130,6 +144,21 @@ const register = (req, res) => {
         },
         mails: [],
         inventory: [],
+        skill_buttons : {
+            b1 : "na",
+            b2 : "na",
+            b3 : "na"
+        },
+        action_buttons : {
+            b1 : "na",
+            b2 : "na",
+            b3 : "na",
+            b4 : "na",
+            b5 : "na",
+            b6 : "na",
+            b7 : "na",
+            b8 : "na"
+        },
         attributes: {
             points: 0,
             phy_attack: 0,
