@@ -34,7 +34,7 @@ const register = (req, res) => {
     if (token != config.APPTOKEN) {
         res.json({
             status: false,
-            message: "Esta usando una aplicación obsoleta o de terceros. Verifique."
+            message: "Esta usando una aplicación obsoleta o de terceros. Descargue esta aplicación de las fuentes oficiales."
         });
         return;
     }
