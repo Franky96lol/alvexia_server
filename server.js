@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 
 /* Express router */
 app.use("/", router); 
-app.use((req, res) => res.json({ message: "ERROR 404" })); 
+app.use((req, res) => res.json({status : false , message: "ERROR 404" })); 
 
 /*Http Server Start */ 
 server.listen(config.PORT, () => console.log("HTTP server running on port " + config.PORT));
