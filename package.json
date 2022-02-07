@@ -1,64 +1,61 @@
 {
 
-"name": "alvexia-server",
+    "name": "alvexia-server",
 
-"version": "0.0.1",
+    "version": "0.0.1",
 
-"description": "Alvexia MMORPG game server.",
+    "description": "Alvexia MMORPG game server.",
 
-"main": "server.js",
+    "main": "server.js",
 
-"scripts": {
+    "scripts": {
 
-"start": "node server.js"
+        "start": "node server.js"
 
-},
+    },
 
-"dependencies": {
+    "dependencies": {
 
-"bcrypt": "^5.0.1",
+        "bcryptjs": "^2.4.3",
 
-"bcryptjs": "^2.4.3",
+        "body-parser": "^1.19.1",
 
-"body-parser": "^1.19.1",
+        "express": "^4.17.2",
 
-"express": "^4.17.2",
+        "jsonwebtoken": "^8.5.1",
 
-"jsonwebtoken": "^8.5.1",
+        "nodemailer": "^6.7.2",
 
-"nodemailer": "^6.7.2",
+        "socket.io": "^4.4.0"
 
-"socket.io": "^4.4.0"
+    },
 
-},
+    "engines": {
 
-"engines": {
+        "node": "12.x"
 
-"node": "12.x"
+    },
 
-},
+    "repository": {
 
-"repository": {
+        "url": "https://glitch.com/edit/#!/glitch-hello-node"
 
-"url": "https://glitch.com/edit/#!/glitch-hello-node"
+    },
 
-},
+    "license": "MIT",
 
-"license": "MIT",
+    "keywords": [
 
-"keywords": [
+        "node",
 
-"node",
+        "glitch",
 
-"glitch",
+        "express"
 
-"express"
+    ],
 
-],
+    "devDependencies": {},
 
-"devDependencies": {},
-
-"author": "Frank Yohan Rodriguez Perez"
+    "author": "Frank Yohan Rodriguez Perez"
 
 }
-
