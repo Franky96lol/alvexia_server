@@ -26,6 +26,10 @@ console.timeEnd("Users loaded in")
 
 /* Express router */
 app.use("/", router); 
+// Wakeup route
+app.post("/wakeup" , (req , res) =>{
+    res.json({status : true});
+});
 app.use((req, res) => res.json({status : false , message: "ERROR 404" })); 
 
 /* Http Server Start */ 
