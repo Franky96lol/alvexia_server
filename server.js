@@ -28,10 +28,10 @@ console.timeEnd("Users loaded in")
 app.use("/", router); 
 app.use((req, res) => res.json({status : false , message: "ERROR 404" })); 
 
-/*Http Server Start */ 
+/* Http Server Start */ 
 server.listen(config.PORT, () => console.log("HTTP server running on port " + config.PORT));
 
-/*Socket Server*/
+/* Socket Connection */
 io.on("connection" , (socket) => {
     
 });
