@@ -139,9 +139,9 @@ const register = (req, res, next) => {
         verified: false,
         acclevel: 1 //0 = baneado , 1 = usuario regular , 2 = maestro , 3 = moderador , 4 = admin
     };
-    account.id = uid.alphanumerical(12);
+    account.id = uid.alphanum(12);
     account.username = username;
-    account.nickname = "apj_" + idGenerator(6);
+    account.nickname = "apj_" + uid.num(6);
     account.color = generateColor();
     account.email = email;
     account.password = bcrypt.hashSync(password, 10);
@@ -178,7 +178,8 @@ const register = (req, res, next) => {
         });
 
         res.json({
-            status: true, message: "Se a registrado correctamente."
+            status: true,
+            message: "Se a registrado correctamente."
         });
     } catch (err) {
         console.log(err);
@@ -204,7 +205,8 @@ const validateEmail = (email) => {
 }
 
 const existsEmail = (_email) => {
-    let emails = fs.readFileSync(config.DB + "/emails.json" , "utf-8");
+    let emails = fs.readFileSync(config.DB + "/emails.json",
+        "utf-8");
 
     for (let email of emails) {
         if (email == _email) return true;
@@ -213,10 +215,10 @@ const existsEmail = (_email) => {
 }
 
 const setEmail = (_email) => {
-    let emails = fs.readFileSync(config.DB + "/emails.json" , "utf-8");
+    let emails = fs.readFileSync(config.DB + "/emails.json", "utf-8");
 
     emails.push(_email);
-    fs.writeFile(config.DB + "/emails.json", emails , "utf-8");
+    fs.writeFile(config.DB + "/emails.json", emails, "utf-8");
 }
 
 module.exports = register;
