@@ -1,6 +1,4 @@
-/* SimplyScript */
-
-/*A SimplyScript module for generate random alpha-numerical ids*/
+/*A simple module for generate random alpha-numerical ids*/
 
 class uid{
     constructor(){
