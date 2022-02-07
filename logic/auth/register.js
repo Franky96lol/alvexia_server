@@ -4,7 +4,7 @@ const uid = require(config.LOGIC + "uid.js");
 const bcrypt = require("bcryptjs");
 
 
-const register = (req, res, next) => {
+const register = (req, res) => {
 
     let username,
     email,
