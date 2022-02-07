@@ -207,7 +207,7 @@ const register = (req, res) => {
     };
     account.id = uid.alphanum(12);
     account.username = username;
-    account.nickname = "apj_" + uid.num(6);
+    account.nickname = "apj" + uid.num(6);
     account.color = generateColor();
     account.email = email;
     account.password = bcrypt.hashSync(password, 10);
