@@ -3,6 +3,10 @@ const fs = require("fs");
 const uid = require(config.LOGIC + "uid.js");
 const bcrypt = require("bcryptjs");
 
+/* Funtion register
+* @params req{ body : {username , email , password , rpassword , token}}
+* @params res {}
+*/
 
 const register = (req, res) => {
 
@@ -24,58 +28,79 @@ const register = (req, res) => {
             "Ups! \nOcurrio un error al intentar crear la cuenta.\nError: " + err +
             "\n\nPor favor, si el problema persiste reportelo."
         });
+        return;
     }
 
-    if (token != config.APPTOKEN)
+    if (token != config.APPTOKEN) {
         res.json({
-        status: false,
-        message: "Esta usando una aplicación obsoleta o de terceros. Verifique."
-    });
-    if (username == undefined)
-        res.json({
-        status: false,
-        message: "El nombre de usuario  no puede estar vacio."
-    });
+            status: false,
+            message: "Esta usando una aplicación obsoleta o de terceros. Verifique."
+        });
+        return;
+    }
 
-    if (email == undefined)
+    if (username == undefined) {
         res.json({
-        status: false, message: "El correo no puede estar vacio."
-    });
+            status: false,
+            message: "El nombre de usuario  no puede estar vacio."
+        });
+        return;
+    }
 
-    if (password == undefined)
+    if (email == undefined) {
         res.json({
-        status: false,
-        message: "La contraseña no puede estar vacia."
-    });
+            status: false, message: "El correo no puede estar vacio."
+        });
+        return;
+    }
 
-    if (global.users[username] != undefined)
+    if (password == undefined) {
         res.json({
-        status: false,
-        message: "Esta cuenta se encuentra en uso.\nIntente otro nombre."
-    });
+            status: false,
+            message: "La contraseña no puede estar vacia."
+        });
+        return;
+    }
 
-    if (password.length < 8)
+    if (global.users[username] != undefined) {
         res.json({
-        status: false,
-        message: "La contraseña debe tener al menos 8 caracteres."
-    });
-    if (password != rpassword)
-        res.json({
-        status: false,
-        message: "Las contraseñas insertadas no coinciden."
-    });
+            status: false,
+            message: "Esta cuenta se encuentra en uso.\nIntente otro nombre."
+        });
+        return;
+    }
 
-    if (!validateEmail(email))
+    if (password.length < 8) {
         res.json({
-        status: false,
-        message: "El correo insertado no posee un formato valido."
-    });
+            status: false,
+            message: "La contraseña debe tener al menos 8 caracteres."
+        });
+        return;
+    }
 
-    if (existsEmail(email))
+    if (password != rpassword) {
         res.json({
-        status: false,
-        message: "El correo insertado ya se encuentra en uso. Intente otro."
-    });
+            status: false,
+            message: "Las contraseñas insertadas no coinciden."
+        });
+        return;
+    }
+
+    if (!validateEmail(email)) {
+        res.json({
+            status: false,
+            message: "El correo insertado no posee un formato valido."
+        });
+        return;
+    }
+
+    if (existsEmail(email)) {
+        res.json({
+            status: false,
+            message: "El correo insertado ya se encuentra en uso. Intente otro."
+        });
+        return;
+    }
 
     const char = /^[a-zA-Z0-9]+$/;
     if (!char.test(username)) {
@@ -83,6 +108,7 @@ const register = (req, res) => {
             status: false,
             message: "El nombre de usuario posee caracteres invalidos. Solo puede usar caracteres de la a-Z y 0-9."
         });
+        return;
     }
 
     const account = {
@@ -181,6 +207,7 @@ const register = (req, res) => {
             status: true,
             message: "Se a registrado correctamente."
         });
+        return;
     } catch (err) {
         console.log(err);
         res.json({
@@ -189,6 +216,7 @@ const register = (req, res) => {
             "Ups! \nA ocurrido un error.\nSi este error persite , por favor reportelo.",
             error: err
         });
+        return;
     }
 }
 
