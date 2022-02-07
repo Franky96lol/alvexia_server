@@ -191,9 +191,9 @@ const register = (req, res) => {
             to: email,
             subject: "Verificación de Cuenta.",
             text:
-            "Para verificar su cuenta siga el link:\n" +
+            "Para verificar su cuenta siga el siguiente link:\n" +
             config.URL +
-            "/auth/verifyMail/" +
+            "/auth/verify/" +
             username +
             "/" +
             account.id
