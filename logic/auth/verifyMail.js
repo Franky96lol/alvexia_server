@@ -1,6 +1,4 @@
 const config = require("../../config.js");
-const fs = require("fs");
-
 const verifyMail = (req, res) => {
   if (!req.params && !req.params.user && !req.param.id) {
       res.json({status : false , message : "error"});
