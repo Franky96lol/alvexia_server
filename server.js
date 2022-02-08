@@ -31,6 +31,9 @@ loader.users();
 //World
 global.world = [];
 loader.world();
+//items
+global.items = [];
+loader.items();
 
 /* Express router */
 app.use("/", router);
