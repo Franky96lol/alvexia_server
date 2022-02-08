@@ -7,6 +7,16 @@ const statscalc = (username){
     const attr = acc.attributes;
     const status = acc.status;
     const equipment = acc.equipment;
+    
+    for(let equip of equipment){
+        for(let a in attr){
+            attr[a] += global.items[equip][a];
+        }
+    }
+    return {
+        attr,
+        status
+    }
 };
 
 module.exports = statscalc;
