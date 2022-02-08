@@ -2,6 +2,9 @@
 
 const connection = (io, socket, username) => {
     const acc = JSON.parse(JSON.stringify(global.users[username]));
+    const pjstats = {
+        
+    };
     socket.join("map_" + acc.pos.map);
     socket.emit("player", acc);
     socket.broadcast.to("map_" + acc.pos.map).emit("new_pj" , acc);
