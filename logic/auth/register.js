@@ -166,7 +166,7 @@ const register = (req, res) => {
             mp : 0,
             pbuff : [],
             nbuff : []
-        }
+        },
         attributes: {
             points: 0,
             phy_attack: 0,
@@ -189,7 +189,7 @@ const register = (req, res) => {
             neck: "na",
             trinket: "na",
             chest: "na",
-            gloves: "na"
+            gloves: "na",
             ring: "na",
             bracers: "na",
             boots: "na",
