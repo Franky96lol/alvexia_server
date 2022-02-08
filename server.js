@@ -31,7 +31,7 @@ loader.users();
 //World
 global.world = [];
 loader.world();
-//items
+//Items
 global.items = [];
 loader.items();
 
