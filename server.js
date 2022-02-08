@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); 
 
 /*Generating World*/
-require(config.LOGIC + "/install/world_generator.js")(50 , 80);
+require(config.LOGIC + "/install/world_map.js")(50 , 80);
 
 /* Loading assets */
 // Users
