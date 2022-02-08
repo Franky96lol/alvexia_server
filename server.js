@@ -19,6 +19,9 @@ const auth = require(config.LOGIC + "/auth/authenticator.js");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); 
 
+/*Generating World*/
+require(config.LOGIC + "/install/world_generator.js")(50 , 80)
+
 /* Loading assets */
 console.time("Users loaded in");
 const lusers = loader.users();
