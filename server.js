@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); 
 
 /*Generating World*/
-require(config.LOGIC + "/install/world_map.js")(50 , 80);
+//require(config.LOGIC + "/install/world_map.js")(50 , 80);
 
 /* Loading assets */
 // Users
@@ -44,7 +44,16 @@ server.listen(config.PORT, () => console.log("HTTP server running on port " + co
 
 /* Socket Connection */
 io.on("connection" , (socket) => {
+    if(socket.handshake.query.username == undefined || socket.handshake.query.token == undefined){
+        socket.disconnect();
+        return;
+    }
+    const username = socket.handshake.query.username,
+    token = socket.handshake.query.token;
     
+    if(!auth.verify(token)){
+        
+    }
 });
 
 console.timeEnd("Server loaded in")
