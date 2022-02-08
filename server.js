@@ -25,15 +25,13 @@ require(config.LOGIC + "/install/world_map.js")(50 , 80);
 /* Loading assets */
 // Users
 console.time("Users loaded in");
-const lusers = loader.users();
-global.users = lusers == undefined ? [] : lusers;
-lusers = null;
+global.users = [];
+loader.users();
 console.timeEnd("Users loaded in");
 //World
 console.time("World loaded in");
-const lworld = loader.world();
-global.world = lworld == undefined ? [] : lworld;
-lworld = null;
+global.world = [];
+loader.world();
 console.timeEnd("World loaded in");
 
 /* Express router */
@@ -53,4 +51,3 @@ io.on("connection" , (socket) => {
 });
 
 console.timeEnd("Server loaded in")
-
