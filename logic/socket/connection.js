@@ -8,4 +8,6 @@ const connection = (io, socket, username) => {
     global.world[acc.pos.map].pjs[username] = acc;
     socket.emit("player", acc);
     socket.emit("map", global.world[acc.pos.map]);
-}
+};
+
+module.exports = connection;
