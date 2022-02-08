@@ -63,6 +63,9 @@ io.on("connection" , (socket) => {
         socket.disconnect();
         return;
     }
+    socket.join("world_" + global.users[username].pos.map);
+    socket.emit("map" , global.world[global.users[username].pos.map]);
+    
     socketing(io , socket , username);
 });
 
