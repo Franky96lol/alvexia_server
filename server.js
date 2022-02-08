@@ -24,15 +24,12 @@ require(config.LOGIC + "/install/world_map.js")(50 , 80);
 
 /* Loading assets */
 // Users
-console.time("Users loaded in");
 global.users = [];
 loader.users();
-console.timeEnd("Users loaded in");
+
 //World
-console.time("World loaded in");
 global.world = [];
 loader.world();
-console.timeEnd("World loaded in");
 
 /* Express router */
 app.use("/", router); 
