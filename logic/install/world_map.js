@@ -2,10 +2,22 @@
 
 const fs = require("fs");
 
-const generate = (map_x , map_y , mmap_x , mmap_y) => {
-    for(let y = 0 ; y < map_y ; y++){
-        for(let x = 0 ; x < map_x ; x++){
-            
+const generate = (map , mmap) => {
+    for(let y = 0 ; y < map ; y++){
+        for(let x = 0 ; x < map ; x++){
+            let map = {
+                name : "",
+                pos : {
+                    x : x,
+                    y : y
+                },
+                size : {
+                    x : mmap,
+                    y : mmap
+                },
+                biome : "nature"
+                terrain : []
+            };
         }
     }
 }
