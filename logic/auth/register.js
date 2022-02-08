@@ -34,7 +34,7 @@ const register = (req, res) => {
     if (token != config.APPTOKEN) {
         res.json({
             status: false,
-            message: "Esta usando una aplicación obsoleta o de terceros. Descargue esta aplicación de las fuentes oficiales."
+            data: "Esta usando una aplicación obsoleta o de terceros. Descargue esta aplicación de las fuentes oficiales."
         });
         return;
     }
@@ -42,14 +42,15 @@ const register = (req, res) => {
     if (username == undefined) {
         res.json({
             status: false,
-            message: "El nombre de usuario  no puede estar vacio."
+            data: "El nombre de usuario  no puede estar vacio."
         });
         return;
     }
 
     if (email == undefined) {
         res.json({
-            status: false, message: "El correo no puede estar vacio."
+            status: false, 
+            data: "El correo no puede estar vacio."
         });
         return;
     }
@@ -57,7 +58,7 @@ const register = (req, res) => {
     if (password == undefined) {
         res.json({
             status: false,
-            message: "La contraseña no puede estar vacia."
+            data: "La contraseña no puede estar vacia."
         });
         return;
     }
@@ -65,7 +66,7 @@ const register = (req, res) => {
     if (global.users[username] != undefined) {
         res.json({
             status: false,
-            message: "Esta cuenta se encuentra en uso.\nIntente otro nombre."
+            data: "Esta cuenta se encuentra en uso.\nIntente otro nombre."
         });
         return;
     }
@@ -73,7 +74,7 @@ const register = (req, res) => {
     if (password.length < 8) {
         res.json({
             status: false,
-            message: "La contraseña debe tener al menos 8 caracteres."
+            data: "La contraseña debe tener al menos 8 caracteres."
         });
         return;
     }
@@ -81,7 +82,7 @@ const register = (req, res) => {
     if (password != rpassword) {
         res.json({
             status: false,
-            message: "Las contraseñas insertadas no coinciden."
+            data: "Las contraseñas insertadas no coinciden."
         });
         return;
     }
@@ -89,7 +90,7 @@ const register = (req, res) => {
     if (!validateEmail(email)) {
         res.json({
             status: false,
-            message: "El correo insertado no posee un formato valido."
+            data: "El correo insertado no posee un formato valido."
         });
         return;
     }
@@ -97,7 +98,7 @@ const register = (req, res) => {
     if (existsEmail(email)) {
         res.json({
             status: false,
-            message: "El correo insertado ya se encuentra en uso. Intente otro."
+            data: "El correo insertado ya se encuentra en uso. Intente otro."
         });
         return;
     }
@@ -106,7 +107,7 @@ const register = (req, res) => {
     if (!char.test(username)) {
         res.json({
             status: false,
-            message: "El nombre de usuario posee caracteres invalidos. Solo puede usar caracteres de la a-Z y 0-9."
+            data: "El nombre de usuario posee caracteres invalidos. Solo puede usar caracteres de la a-Z y 0-9."
         });
         return;
     }
@@ -247,14 +248,14 @@ const register = (req, res) => {
 
         res.json({
             status: true,
-            message: "Se a registrado correctamente."
+            data: "Se a registrado correctamente."
         });
         return;
     } catch (err) {
         console.log(err);
         res.json({
             status: false,
-            message:
+            data:
             "Ups! \nA ocurrido un error.\nSi este error persite , por favor reportelo.",
             error: err
         });
