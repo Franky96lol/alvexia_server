@@ -50,10 +50,20 @@ io.on("connection" , (socket) => {
     }
     const username = socket.handshake.query.username,
     token = socket.handshake.query.token;
-    
-    if(!auth.verify(token)){
-        
+    const verify = auth.verify(token);
+    if(verify == false){
+        socket.disconnect();
+        return;
     }
+    if(global.users[username] == undefined){
+        socket.disconnect();
+        return;
+    }
+    if(global.users[username].id != verify){
+        socket.disconnect();
+        return;
+    }
+    socketing(io , socket , username);
 });
 
 console.timeEnd("Server loaded in")
