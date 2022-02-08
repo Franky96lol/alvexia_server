@@ -26,7 +26,6 @@ require(config.LOGIC + "/install/world_map.js")(50 , 80);
 // Users
 global.users = [];
 loader.users();
-
 //World
 global.world = [];
 loader.world();
