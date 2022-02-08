@@ -11,6 +11,14 @@ const users = () => {
     }
 };
 
+/* Loading world from database to server */
+const world = () => {
+    const worlds = fs.readdirSync(config.DB + "/maps/");
+    for(let map of worlds){
+        global.map[map.replace(".json" , "")] = fs.readFileSync(config.DB + "/maps/" + map , "utf-8");
+    }
+};
+
 module.exports = {
     users
 };
