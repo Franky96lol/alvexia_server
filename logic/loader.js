@@ -35,5 +35,6 @@ const items = () => {
 
 module.exports = {
     users,
-    world
+    world,
+    items
 };
