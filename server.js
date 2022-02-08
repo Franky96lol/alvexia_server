@@ -44,33 +44,6 @@ server.listen(config.PORT, () => console.log("HTTP server running on port " + co
 
 /* Socket Connection */
 io.on("connection" , (socket) => {
-    if(socket.handshake.query.username == undefined || socket.handshake.query.token == undefined){
-        socket.disconnect();
-        return;
-    }
-    const username = socket.handshake.query.username,
-    token = socket.handshake.query.token;
-    const verify = auth.verify(token);
-    if(verify == false){
-        socket.disconnect();
-        return;
-    }
-    if(global.users[username] == undefined){
-        socket.disconnect();
-        return;
-    }
-    if(global.users[username].id != verify){
-        socket.disconnect();
-        return;
-    }
-    const acc = JSON.parse(JSON.stringify(global.users[username]));
-    delete acc.password;
-    socket.join("map_" + acc.pos.map);
-    socket.broadcast.to("map_" + acc.pos.map)
-    global.world[acc.pos.map].pjs[username] = acc;
-    socket.emit("player" , acc);
-    socket.emit("map" , global.world[acc.pos.map]);
-    
     socketing(io , socket , username);
 });
 
