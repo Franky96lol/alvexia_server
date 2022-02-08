@@ -36,6 +36,7 @@ app.use("/", router);
 app.post("/wakeup" , (req , res) =>{
     res.json({status : true});
 });
+//Error route
 app.use((req, res) => res.json({status : false , message: "ERROR 404" })); 
 
 /* Http Server Start */ 
