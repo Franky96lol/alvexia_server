@@ -13,9 +13,15 @@ const statscalc = (username){
             attr[a] += global.items[equip][a];
         }
     }
+    
+    const exp = {
+        xp : Math.floor(Math.pow((acc.level + 5) , 3))
+    };
+    
     return {
         attr,
-        status
+        status,
+        exp
     }
 };
 
