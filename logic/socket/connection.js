@@ -8,7 +8,8 @@ const connection = (io, socket, username) => {
     const pjstats = {
         nickname : acc.nickname,
         level : acc.level,
-        xp : acc.xp,
+        xp : _stats.exp.xp,
+        c_xp : acc.xp,
         hp : _stats.attr.hp,
         mp : _stats.attr.mp,
         c_hp : _stats.status.hp,
@@ -17,7 +18,7 @@ const connection = (io, socket, username) => {
     };
     socket.join("map_" + acc.pos.map);
     socket.emit("pjstats", pjstats);
-    socket.broadcast.to("map_" + acc.pos.map).emit("new_pj" , pjstats);
+    socket.broadcast.to("map_" + acc.pos.map).emit("new_pj" , {username : username , pjstats : pjstats});
     global.world[acc.pos.map].pjs[username] = pjstats;
     socket.emit("load_map", global.world[acc.pos.map]);
 };
