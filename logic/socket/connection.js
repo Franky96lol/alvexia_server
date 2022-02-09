@@ -20,6 +20,8 @@ const connection = (io, socket, username) => {
     socket.broadcast.to("map_" + acc.pos.map).emit("new_pj" , {username : username , pjstats : pjstats});
     global.world[acc.pos.map].pjs[username] = pjstats;
     socket.emit("load_map", global.world[acc.pos.map]);
+    global.users[username].isOnline = true;
+    return;
 };
 
 module.exports = connection;
