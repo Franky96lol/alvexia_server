@@ -25,7 +25,7 @@ const world = () => {
 
 /* Loading items from database to server */
 const items = () => {
-    console.time("Itemd loaded in");
+    console.time("Items loaded in");
     const _items = fs.readdirSync(config.DB + "/items/");
     for (let item of _items) {
         global.items[item.replace(".json", "")] = JSON.stringify(fs.readFileSync(config.DB + "/items/" + item, "utf-8"));
