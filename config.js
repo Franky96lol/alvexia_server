@@ -14,7 +14,7 @@ const config = {
         x : 0,
         y : 0
     },
-    APPTOKEN: "mmm", 
+    APPTOKEN: "La_6362kwjsbd&uwueb277291", 
     server: { version: "v0.0.1" }
  }; 
  
