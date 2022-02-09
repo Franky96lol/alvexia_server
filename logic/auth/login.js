@@ -37,7 +37,7 @@ const login = (req, res) => {
     }
 
 
-    if (global.users[username] != undefined) {
+    if (global.users[username] == undefined) {
         res.json({
             status: false,
             data: "Nombre de usuario o contraseña incorrectos."
