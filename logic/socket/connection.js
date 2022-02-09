@@ -6,6 +6,9 @@ const connection = (io, socket, username) => {
     const acc = JSON.parse(JSON.stringify(global.users[username]));
     const _stats = statscalc(username);
     const pjstats = {
+        nickname : acc.nickname,
+        level : acc.level,
+        xp : acc.xp,
         hp : _stats.attr.hp,
         mp : _stats.attr.mp,
         c_hp : _stats.status.hp,
