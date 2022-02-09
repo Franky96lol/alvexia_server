@@ -17,7 +17,10 @@ const generate = (map , mmap) => {
                     y : mmap
                 },
                 biome : "nature"
-                terrain : []
+                terrain : {},
+                objects : {},
+                npcs : {},
+                pjs : {}
             };
             fs.writeFile(config.DB + "/maps/" + x + "_" + y + ".json" , JSON.stringify(map) , "utf-8");
         }
