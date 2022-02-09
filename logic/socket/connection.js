@@ -17,7 +17,6 @@ const connection = (io, socket, username) => {
         pos : acc.pos
     };
     socket.join("map_" + acc.pos.map);
-    socket.emit("pjstats", pjstats);
     socket.broadcast.to("map_" + acc.pos.map).emit("new_pj" , {username : username , pjstats : pjstats});
     global.world[acc.pos.map].pjs[username] = pjstats;
     socket.emit("load_map", global.world[acc.pos.map]);
