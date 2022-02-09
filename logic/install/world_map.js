@@ -1,5 +1,6 @@
 /* World Map Generator */
 
+const config = require("../../config.js");
 const fs = require("fs");
 
 const generate = (map , mmap) => {
@@ -16,13 +17,13 @@ const generate = (map , mmap) => {
                     x : mmap,
                     y : mmap
                 },
-                biome : "nature"
+                biome : "nature",
                 terrain : {},
                 objects : {},
                 npcs : {},
                 pjs : {}
             };
-            fs.writeFile(config.DB + "/maps/" + x + "_" + y + ".json" , JSON.stringify(map) , "utf-8");
+            fs.writeFileSync(config.DB + "/maps/" + x + "_" + y + ".json" , JSON.stringify(map) ,"utf-8");
         }
     }
     console.timeEnd("Map Generated in");
