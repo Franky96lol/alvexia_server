@@ -56,7 +56,7 @@ const register = (req, res) => {
     if (password == undefined) {
         res.json({
             status: false,
-            data: "EMPTY_MAIL"
+            data: "EMPTY_PASS"
         });
         return;
     }
@@ -80,7 +80,7 @@ const register = (req, res) => {
     if (password != rpassword) {
         res.json({
             status: false,
-            data: "PASS_DONT_MATCH"
+            data: "PASS_MATCH"
         });
         return;
     }
