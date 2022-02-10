@@ -5,7 +5,7 @@ const bcrypt = require("bcryptjs");
 
 /* function login
 * @Method : POST
-* @param req {body : {username , password , token}}
+* @param req {body : {username , password , app_token}}
 * @param res {}
 */
 
