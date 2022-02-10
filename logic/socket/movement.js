@@ -10,8 +10,8 @@ const movement = (io , socket , username) => {
             return;
         }
         global.users[username].pos.last_step = new Date().getTime();
-        const x = Math.floor(data.x / 100 * move_speed);
-        const y = Math.floor(data.y / 100 * move_speed);
+        const x = (data.x / 100 * move_speed);
+        const y = (data.y / 100 * move_speed);
         
         const pos_x = pos.x += x;
         const pos_y = pos.y += y;
