@@ -12,7 +12,8 @@ const config = {
     PSTART : {
         map : "0_0",
         x : 0,
-        y : 0
+        y : 0,
+        angle : 180
     },
     APPTOKEN: "La_6362kwjsbd&uwueb277291", 
     server: { version: "v0.0.1" }
