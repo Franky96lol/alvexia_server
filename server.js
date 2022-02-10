@@ -35,6 +35,10 @@ loader.world();
 global.items = {};
 loader.items();
 
+/* Starting Game Engine */
+const GEngine = require(config.LOGIC + "/engine.js");
+const Engine = new GEngine().start();
+
 /* Express router */
 app.use("/", router);
 // Wakeup route
