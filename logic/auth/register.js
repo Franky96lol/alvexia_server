@@ -24,9 +24,7 @@ const register = (req, res) => {
     } catch (err) {
         res.json({
             status: false,
-            data:
-            "Ups! \nOcurrio un error al intentar crear la cuenta.\nError: " + err +
-            "\n\nPor favor, si el problema persiste reportelo."
+            data: "DATA_ERROR"
         });
         return;
     }
@@ -34,7 +32,7 @@ const register = (req, res) => {
     if (token != config.APPTOKEN) {
         res.json({
             status: false,
-            data: "Esta usando una aplicación obsoleta o de terceros. Descargue esta aplicación de las fuentes oficiales."
+            data: "WRONG_APP_TOKEN"
         });
         return;
     }
@@ -42,7 +40,7 @@ const register = (req, res) => {
     if (username == undefined) {
         res.json({
             status: false,
-            data: "El nombre de usuario  no puede estar vacio."
+            data: "EMPTY_USER"
         });
         return;
     }
@@ -50,7 +48,7 @@ const register = (req, res) => {
     if (email == undefined) {
         res.json({
             status: false, 
-            data: "El correo no puede estar vacio."
+            data: "EMPTY_MAIL"
         });
         return;
     }
@@ -58,7 +56,7 @@ const register = (req, res) => {
     if (password == undefined) {
         res.json({
             status: false,
-            data: "La contraseña no puede estar vacia."
+            data: "EMPTY_MAIL"
         });
         return;
     }
@@ -66,7 +64,7 @@ const register = (req, res) => {
     if (global.users[username] != undefined) {
         res.json({
             status: false,
-            data: "Esta cuenta se encuentra en uso.\nIntente otro nombre."
+            data: "ACC_USED"
         });
         return;
     }
@@ -74,7 +72,7 @@ const register = (req, res) => {
     if (password.length < 8) {
         res.json({
             status: false,
-            data: "La contraseña debe tener al menos 8 caracteres."
+            data: "PASS_LENGTH"
         });
         return;
     }
@@ -82,7 +80,7 @@ const register = (req, res) => {
     if (password != rpassword) {
         res.json({
             status: false,
-            data: "Las contraseñas insertadas no coinciden."
+            data: "PASS_DONT_MATCH"
         });
         return;
     }
@@ -90,7 +88,7 @@ const register = (req, res) => {
     if (!validateEmail(email)) {
         res.json({
             status: false,
-            data: "El correo insertado no posee un formato valido."
+            data: "WRONG_MAIL"
         });
         return;
     }
@@ -98,7 +96,7 @@ const register = (req, res) => {
     if (existsEmail(email)) {
         res.json({
             status: false,
-            data: "El correo insertado ya se encuentra en uso. Intente otro."
+            data: "MAIL_USED"
         });
         return;
     }
@@ -107,7 +105,7 @@ const register = (req, res) => {
     if (!char.test(username)) {
         res.json({
             status: false,
-            data: "El nombre de usuario posee caracteres invalidos. Solo puede usar caracteres de la a-Z y 0-9."
+            data: "USERNAME_BAD_CHAR"
         });
         return;
     }
@@ -248,7 +246,7 @@ const register = (req, res) => {
 
         res.json({
             status: true,
-            data: "Se a registrado correctamente."
+            data: "REGISTERED"
         });
         return;
     } catch (err) {
@@ -256,7 +254,7 @@ const register = (req, res) => {
         res.json({
             status: false,
             data:
-            "Ups! \nA ocurrido un error.\nSi este error persite , por favor reportelo.",
+            "DATA_ERROR",
             error: err
         });
         return;
@@ -289,7 +287,7 @@ const setEmail = (_email) => {
     let emails = JSON.parse(fs.readFileSync(config.DB + "/emails.json", "utf-8"));
 
     emails.push(_email);
-    fs.writeFile(config.DB + "/emails.json", JSON.stringify(emails), "utf-8");
+    fs.writeFileSync(config.DB + "/emails.json", JSON.stringify(emails), "utf-8");
 }
 
 module.exports = register;
