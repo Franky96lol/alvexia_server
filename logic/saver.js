@@ -10,19 +10,31 @@ timer.add([{
     tickInterval: 60,
     totalRuns: 0,
     callback(task) {
-        
+        users_save();
     }
 }, {
     id: "world_save",
     tickInterval : 60,
     totalRuns : 0,
     callback(task) {
-        
+        world_save();
     }
 }]);
 
 const users_save = () => {
-    
+    console.time("Accounts database saved in");
+    for(let user in global.users){
+        fs.writeFile(config.DB + "/accounts/" + user + ".json" , global.users[user]);
+    }
+    console.timeEnd("Accounts database saved in");
+};
+
+const world_save = () => {
+    console.time("World saved in");
+    for(let map in global.world){
+        fs.writeFile(config.DB + "/maps/" + map + ".json" , global.world[map]);
+    }
+    console.timeEnd("World saved in");
 };
 
 const start = () => {
