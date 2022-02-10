@@ -13,7 +13,8 @@ const config = {
         map : "0_0",
         x : 0,
         y : 0,
-        angle : 180
+        angle : 180,
+        last_step : new Date().getTime()
     },
     APPTOKEN: "La_6362kwjsbd&uwueb277291", 
     server: { version: "v0.0.1" }
