@@ -20,7 +20,7 @@ const register = (req, res) => {
         email = req.body.email;
         password = req.body.password;
         rpassword = req.body.rpassword;
-        token = req.body.token;
+        token = req.body.app_token;
     } catch (err) {
         res.json({
             status: false,
