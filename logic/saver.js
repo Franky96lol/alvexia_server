@@ -44,3 +44,5 @@ const start = () => {
 const stop = () => {
     timer.stop();
 };
+
+module.exports {start , stop};
