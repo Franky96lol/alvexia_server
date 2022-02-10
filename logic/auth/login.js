@@ -17,7 +17,7 @@ const login = (req, res) => {
     try {
         username = req.body.username;
         password = req.body.password;
-        token = req.body.token;
+        token = req.body.app_token;
     } catch (err) {
         res.json({
             status: false,
