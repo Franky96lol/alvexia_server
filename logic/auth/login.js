@@ -21,8 +21,7 @@ const login = (req, res) => {
     } catch (err) {
         res.json({
             status: false,
-            data:
-            "Ups!\nA ocurrido un error. Si este problema continua , reportelo.",
+            data: "DATA_ERROR",
             error: err
         });
         return;
@@ -31,7 +30,7 @@ const login = (req, res) => {
     if (token != config.APPTOKEN) {
         res.json({
             status: false,
-            data: "Esta usando una aplicación obsoleta o de terceros. Verifique."
+            data: "WRONG_TOKEN"
         });
         return;
     }
@@ -40,7 +39,7 @@ const login = (req, res) => {
     if (global.users[username] == undefined) {
         res.json({
             status: false,
-            data: "Nombre de usuario o contraseña incorrectos."
+            data: "WRONG_USER"
         });
         return;
     }
@@ -50,7 +49,7 @@ const login = (req, res) => {
     if (!bcrypt.compareSync(password, account.password)) {
         res.json({
             status: false,
-            data: "Nombre de usuario o contraseña incorrectos."
+            data: "WRONG_USER"
         });
         return
     }
@@ -58,7 +57,7 @@ const login = (req, res) => {
     if (account.id == null || account.id == undefined) {
         res.json({
             status: false,
-            data: "La cuenta se encuentra corrupta. Reporte este error."
+            data: "ACC_ERROR"
         });
         return;
     }
