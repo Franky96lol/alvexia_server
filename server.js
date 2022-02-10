@@ -26,13 +26,13 @@ app.use(bodyParser.json());
 
 /* Loading assets */
 // Users
-global.users = [];
+global.users = {};
 loader.users();
 //World
-global.world = [];
+global.world = {};
 loader.world();
 //Items
-global.items = [];
+global.items = {};
 loader.items();
 
 /* Express router */
