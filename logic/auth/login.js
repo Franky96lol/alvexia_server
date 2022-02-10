@@ -30,7 +30,7 @@ const login = (req, res) => {
     if (token != config.APPTOKEN) {
         res.json({
             status: false,
-            data: "WRONG_TOKEN"
+            data: "WRONG_APP_TOKEN"
         });
         return;
     }
