@@ -7,7 +7,7 @@ const fs = require("fs");
 const timer = new TaskTimer(1000);
 timer.add([{
     id: 'users_save',
-    tickInterval: config.RATE.user_save,
+    tickInterval: config.RATE.users_save,
     totalRuns: 0,
     callback(task) {
         users_save();
