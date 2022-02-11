@@ -14,7 +14,9 @@ const config = {
         gold : 1,
         speed : 1,
         regen : 10,
-        material_gen : 30 * 60
+        users_save : 60,
+        world_save : 60,
+        material_gen : 60
     },
     PSTART : {
         map : "0_0",
