@@ -13,6 +13,15 @@ const users = () => {
     console.timeEnd("Users loaded in");
 };
 
+const objects = () => {
+    console.time("Objects loaded in");
+    const _objects = fs.readdirSync(config.DB + "/objects/");
+    for (let obj of _objects) {
+        global.objects[obj.replace(".json", "")] = JSON.stringify(fs.readFileSync(config.DB + "/objects/" + obj, "utf-8"));
+    }
+    console.timeEnd("Objects loaded in");
+};
+
 /* Loading world from database to server */
 const world = () => {
     console.time("World loaded in");
@@ -36,5 +45,6 @@ const items = () => {
 module.exports = {
     users,
     world,
-    items
+    items,
+    objects
 };
