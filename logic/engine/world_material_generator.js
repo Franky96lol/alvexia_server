@@ -25,4 +25,12 @@ const material_generator = (io) => {
     console.log("Material Generated.")
 };
 
-module.exports = material_generator;
+const start = () => {
+    timer.start();
+};
+
+const stop = () => {
+    timer.stop();
+};
+
+module.exports = {start , stop};
