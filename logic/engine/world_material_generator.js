@@ -22,6 +22,7 @@ const material_generator = (io) => {
             }
         }
     }
+    console.log("Material Generated.")
 };
 
 module.exports = material_generator;
