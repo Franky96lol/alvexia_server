@@ -45,4 +45,4 @@ const stop = () => {
     timer.stop();
 };
 
-module.exports {start , stop};
+module.exports = {start , stop};
