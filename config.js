@@ -9,6 +9,13 @@ const config = {
         secret: "super_secret_token_keyword", 
         expire: "6h" 
     }, 
+    RATE : {
+        xp : 1,
+        gold : 1,
+        speed : 1,
+        regen : 10,
+        material_gen : 30 * 60
+    },
     PSTART : {
         map : "0_0",
         x : 0,
