@@ -1,3 +1,8 @@
 {
-
+    "name" : "Arbol",
+    "type" : "tree",
+    "require" : "woodcutting",
+    "level" : 1,
+    "max_amount" : 3,
+    "drop" : "wood"
 }
