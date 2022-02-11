@@ -1,4 +1,4 @@
-/* On Connection */
+/* Socket On Connection */
 const config = require("../../config.js");
 const statscalc = require(config.LOGIC + "/engine/statscalc.js");
 
