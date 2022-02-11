@@ -37,7 +37,7 @@ loader.items();
 
 /* Starting Game Engine */
 const GEngine = require(config.LOGIC + "/engine.js");
-const Engine = new GEngine().start();
+const Engine = new GEngine(io).start();
 
 /* Express router */
 app.use("/", router);
