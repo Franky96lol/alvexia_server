@@ -11,7 +11,7 @@ class Engine {
     
     start(){
         saver.start();
-        wmg.start(io);
+        wmg.start(this.io);
     }
 }
 
