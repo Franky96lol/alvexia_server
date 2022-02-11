@@ -151,21 +151,21 @@ const register = (req, res) => {
         skins : ["hero_1" , "hero_2"],
         spells_buttons : {
             b1 : {
-                id : "na"
+                id : "na",
                 img : "na",
                 level : 0,
                 xp : 0,
                 cd : 0
             },
             b2 : {
-                id : "na"
+                id : "na",
                 img : "na",
                 level : 0,
                 xp : 0,
                 cd : 0
             },
             b3 : {
-                id : "na"
+                id : "na",
                 img : "na",
                 level : 0,
                 xp : 0,
