@@ -145,6 +145,7 @@ const register = (req, res) => {
         mails: [],
         bags : 2,
         armory: [],
+        consumables : [],
         materials: [],
         spells : [],
         skins : ["hero_1" , "hero_2"],
