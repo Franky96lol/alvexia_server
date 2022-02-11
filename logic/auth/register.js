@@ -144,11 +144,32 @@ const register = (req, res) => {
         },
         mails: [],
         bags : 2,
-        inventory: [],
-        spells : {
-            b1 : "na",
-            b2 : "na",
-            b3 : "na"
+        armory: [],
+        materials: [],
+        spells : [],
+        skins : [],
+        spells_buttons : {
+            b1 : {
+                id : "na"
+                img : "na",
+                level : 0,
+                xp : 0,
+                cd : 0
+            },
+            b2 : {
+                id : "na"
+                img : "na",
+                level : 0,
+                xp : 0,
+                cd : 0
+            },
+            b3 : {
+                id : "na"
+                img : "na",
+                level : 0,
+                xp : 0,
+                cd : 0
+            }
         },
         action_buttons : {
             b1 : "na",
@@ -194,9 +215,9 @@ const register = (req, res) => {
             ring: "na",
             bracers: "na",
             boots: "na",
-            skin: "na",
             mount: "na"
         },
+        skin : "hero_1",
         isOnline: false,
         lastTimeOnline: new Date().getTime(),
         isOnCombat: false,
