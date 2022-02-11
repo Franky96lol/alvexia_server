@@ -18,6 +18,7 @@ const generate = (map , mmap) => {
                     y : mmap
                 },
                 biome : "nature",
+                type : "neutral",
                 terrain : {},
                 objects : {},
                 npcs : {},
