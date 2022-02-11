@@ -22,18 +22,23 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 /*Generating World*/
-//require(config.LOGIC + "/install/world_map.js")(50 , 80);
+//require(config.LOGIC + "/install/world_map.js")(10 , 80);
 
 /* Loading assets */
 // Users
 global.users = {};
 loader.users();
+//Objects
+global.objects = {};
+loader.objects();
 //World
 global.world = {};
 loader.world();
 //Items
 global.items = {};
 loader.items();
+
+
 
 /* Starting Game Engine */
 const GEngine = require(config.LOGIC + "/engine.js");
