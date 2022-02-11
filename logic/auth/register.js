@@ -147,7 +147,7 @@ const register = (req, res) => {
         armory: [],
         materials: [],
         spells : [],
-        skins : [],
+        skins : ["hero_1" , "hero_2"],
         spells_buttons : {
             b1 : {
                 id : "na"
