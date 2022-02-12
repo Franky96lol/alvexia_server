@@ -16,6 +16,8 @@ const connection = (io, socket, username) => {
             c_hp: _stats.status.hp,
             c_mp: _stats.status.mp,
         },
+        size : acc.size,
+        skin : acc.skin,
         pos: acc.pos
     };
     socket.join("map_" + acc.pos.map);
