@@ -120,6 +120,7 @@ const register = (req, res) => {
         level: 1,
         xp: 0,
         pos : config.PSTART,
+        size : config.HERO_SIZE,
         skills : {
             melee : {
                 level : 1,
