@@ -6,11 +6,11 @@ const statscalc = (username) => {
     delete acc.attributes.points;
     const attr = acc.attributes;
     const status = acc.status;
-    const equipment = acc.equipment;
+    const equipment = acc.equiped;
     
-    for(let equip of equipment){
+    for(let equip in equipment){
         for(let a in attr){
-            attr[a] += global.items[equip][a];
+            attr[a] += global.items[equipment[equip]][a];
         }
     }
     
