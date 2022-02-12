@@ -18,6 +18,10 @@ const config = {
         world_save : 60,
         material_gen : 60
     },
+    HERO_SIZE : {
+        x : 100,
+        y : 100
+    },
     PSTART : {
         map : "0_0",
         x : 0,
