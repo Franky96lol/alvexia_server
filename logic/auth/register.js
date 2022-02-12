@@ -149,7 +149,7 @@ const register = (req, res) => {
         consumables : [],
         materials: [],
         spells : [],
-        skins : ["hero_1" , "hero_2"],
+        skins : ["hero_male_1" , "hero_female_1"],
         spells_buttons : {
             b1 : {
                 id : "na",
@@ -219,7 +219,7 @@ const register = (req, res) => {
             boots: "na",
             mount: "na"
         },
-        skin : "hero_1",
+        skin : "hero_male_1",
         isOnline: false,
         lastTimeOnline: new Date().getTime(),
         isOnCombat: false,
