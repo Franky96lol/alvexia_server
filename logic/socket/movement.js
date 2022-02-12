@@ -6,15 +6,15 @@ const movement = (io , socket , username) => {
     socket.on("move_pj" , (data) => {
         const pos = global.users[username].pos;
         const move_speed = 1;
-        if(pos.last_step > (new Date().getTime() - 1000)){
+        if(pos.last_step > (new Date().getTime() - config.RATE.ms)){
             return;
         }
         global.users[username].pos.last_step = new Date().getTime();
         const x = (data.x / 100 * move_speed);
         const y = (data.y / 100 * move_speed);
         
-        const pos_x = pos.x += x;
-        const pos_y = pos.y += y;
+        const pos_x = Math.floor(pos.x + x);
+        const pos_y = Math.floor(pos.y + y);
         
         global.users[username].pos.x = pos_x;
         global.users[username].pos.y = pos_y;
