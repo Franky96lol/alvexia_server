@@ -23,7 +23,11 @@ const movement = (io , socket , username) => {
         
         io.to("map_" + pos.map).emit("move_pj", {
             username : username,
-            pos : global.users[username].pos
+            pos : {
+                x : pos_x,
+                y : pos_y,
+                angle : 180
+            }
         })
         
     });
