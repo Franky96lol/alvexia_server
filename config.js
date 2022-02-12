@@ -13,6 +13,7 @@ const config = {
         xp : 1,
         gold : 1,
         speed : 1,
+        ms : 100,
         regen : 10,
         users_save : 60,
         world_save : 60,
