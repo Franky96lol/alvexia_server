@@ -13,8 +13,8 @@ const movement = (io , socket , username) => {
         const x = (data.x / 100 * move_speed);
         const y = (data.y / 100 * move_speed);
         
-        const pos_x = Math.floor(pos.x + x);
-        const pos_y = Math.floor(pos.y + y);
+        const pos_x = (pos.x + x).toFixed(1);
+        const pos_y = (pos.y + y).toFixed(1);
         
         global.users[username].pos.x = pos_x;
         global.users[username].pos.y = pos_y;
