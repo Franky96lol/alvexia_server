@@ -13,10 +13,10 @@ const movement = (io , socket , username) => {
         const x = (data.x / 100 * move_speed);
         const y = (data.y / 100 * move_speed);
         
-        let pos_x = (pos.x + x);
-        let pos_y = (pos.y + y);
-        pos_x = pos_x.toFixed(1);
-        pos_y = pos_y.toFixed(1);
+        let pos_x = parseInt(pos.x + x);
+        let pos_y = parseInt(pos.y + y);
+       /* pos_x = pos_x.toFixed(1);
+        pos_y = pos_y.toFixed(1);*/
         console.log(username + " x:" + pos_x + ",y:" + pos_y);
         global.users[username].pos.x = pos_x;
         global.users[username].pos.y = pos_y;
