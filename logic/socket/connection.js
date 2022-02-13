@@ -15,8 +15,8 @@ const connection = (io, socket, username) => {
             mp: _stats.attr.mp,
             c_hp: _stats.status.hp,
             c_mp: _stats.status.mp,
+            speed : 3
         },
-        speed : 3,
         size : acc.size,
         skin : acc.skin,
         pos: acc.pos
