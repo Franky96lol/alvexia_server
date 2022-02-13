@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 /*Generating World*/
-//require(config.LOGIC + "/install/world_map.js")(10 , 80);
+require(config.LOGIC + "/install/world_map.js")(10 , 20);
 
 /* Loading assets */
 // Users
