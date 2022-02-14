@@ -11,9 +11,9 @@ const movement = (io , socket , username) => {
             return;
         }
         global.users[username].pos.last_step = new Date().getTime();
-
-        let pos_x = data.x;//parseInt(pos.x + x);
-        let pos_y = data.y;//parseInt(pos.y + y);
+        data = data.split("&");
+        let pos_x = parseFloat(data[0]);
+        let pos_y = parseFloat(data[1]);
 
         global.users[username].pos.x = pos_x;
         global.users[username].pos.y = pos_y;
