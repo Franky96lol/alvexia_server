@@ -19,7 +19,7 @@ const movement = (io , socket , username) => {
         global.world[pos.map].pjs[username].pos.x = pos_x;
         global.world[pos.map].pjs[username].pos.y = pos_y;
         
-        io.to("map_" + pos.map).emit("move_pj", username + "&" + pos_x + "&" + pos_y + "&" + 0);
+        socket.broadcast.to("map_" + pos.map).emit("move_pj", username + "&" + pos_x + "&" + pos_y + "&" + 0);
         
     });
 };
