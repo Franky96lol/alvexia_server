@@ -5,7 +5,6 @@ const config = require("../../config.js");
 const movement = (io , socket , username) => {
     socket.on("move_pj" , (data) => {
         const pos = global.users[username].pos;
-        const move_speed = 1;
         if(pos.last_step > (new Date().getTime() - (1000 / config.RATE.ms))){
             socket.disconnect();
             return;
