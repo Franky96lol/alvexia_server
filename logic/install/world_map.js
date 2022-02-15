@@ -28,17 +28,12 @@ const generate = (map, mmap) => {
             for (let _y = 0; _y < mmap; _y ++) {
                 for (let _x = 0; _x < mmap; _x ++) {
                     if (_y == 0 || _y == (mmap-1) &&
-                        _x == 0 || _x == (mmap - 1)) objects[uid.alphanum(4)] = {
+                        _x == 0 || _x == (mmap - 1)) objects[_x + "_" + _y] = {
                         name: "tree_1",
                         faction: "silver_legion",
                         amount: 1000,
                         c_amount: 1000,
-                        type: "ind",
-                        pos: {
-                            x: _x,
-                            y: _y
-                        }
-
+                        type: "ind"
                     }
                 }
                 fs.writeFileSync(config.DB + "/maps/" + x + "_" + y + ".json", JSON.stringify(map), "utf-8");
