@@ -28,7 +28,7 @@ const generate = (map, mmap) => {
             for (let _y = 0; _y < mmap; _y ++) {
                 for (let _x = 0; _x < mmap; _x ++) {
                     if (_y == 0 || _y == (mmap-1) &&
-                        _x == 0 || _x == (mmap - 1)) objects[_x + "_" + _y] = {
+                        _x == 0 || _x == (mmap - 1)) map.objects[_x + "_" + _y] = {
                         name: "tree_1",
                         faction: "silver_legion",
                         amount: 1000,
@@ -36,7 +36,8 @@ const generate = (map, mmap) => {
                         type: 0
                     }
                 }
-                fs.writeFileSync(config.DB + "/maps/" + x + "_" + y + ".json", JSON.stringify(map), "utf-8");
+            }
+            fs.writeFileSync(config.DB + "/maps/" + x + "_" + y + ".json", JSON.stringify(map), "utf-8");
             }
         }
         console.timeEnd("Map Generated in");
