@@ -16,7 +16,12 @@ const movement = (io , socket , username) => {
         const tile_x = Math.floor(pos_x / 100);
         const tile_y = Math.floor(pos_y / 100);
         /* Collition */
-        if(global.world.objects[tile_x + "_" + tile_y].type == 0) return;
+        const tile = global.world[pos.map].objects[tile_x + "_" + tile_y];
+        if(tile != undefined){
+            if(tile.type == 0){
+                return;
+            }
+        }
 
         global.users[username].pos.x = pos_x;
         global.users[username].pos.y = pos_y;
