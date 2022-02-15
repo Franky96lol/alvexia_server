@@ -13,6 +13,10 @@ const movement = (io , socket , username) => {
         data = data.split("&");
         let pos_x = parseFloat(data[0]);
         let pos_y = parseFloat(data[1]);
+        const tile_x = Math.floor(pos_x / 100);
+        const tile_y = Math.floor(pos_y / 100);
+        /* Collition */
+        if(global.world.objects[tile_x + "_" + tile_y].type == 0) return;
 
         global.users[username].pos.x = pos_x;
         global.users[username].pos.y = pos_y;
