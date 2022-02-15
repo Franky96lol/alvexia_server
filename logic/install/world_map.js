@@ -33,7 +33,7 @@ const generate = (map, mmap) => {
                         faction: "silver_legion",
                         amount: 1000,
                         c_amount: 1000,
-                        type: "ind"
+                        type: 0
                     }
                 }
                 fs.writeFileSync(config.DB + "/maps/" + x + "_" + y + ".json", JSON.stringify(map), "utf-8");
