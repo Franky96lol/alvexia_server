@@ -22,9 +22,9 @@ const config = {
     HERO_SIZE : "1_1",
     PSTART : {
         map : "0_0",
-        x : 0,
-        y : 0,
-        angle : 180,
+        x : 200,
+        y : 200,
+        angle : 0,
         last_step : new Date().getTime()
     },
     APPTOKEN: "La_6362kwjsbd&uwueb277291", 
