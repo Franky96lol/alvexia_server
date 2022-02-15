@@ -1,6 +1,7 @@
 /* World Map Generator */
 
 const config = require("../../config.js");
+const uid = require(config.LOGIC + "/uid.js")
 const fs = require("fs");
 
 const generate = (map , mmap) => {
