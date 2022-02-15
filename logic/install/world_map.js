@@ -33,6 +33,7 @@ const generate = (map, mmap) => {
                         faction: "silver_legion",
                         amount: 1000,
                         c_amount: 1000,
+                        size : "1_2",
                         type: 0
                     }
                 }
