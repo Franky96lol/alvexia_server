@@ -25,8 +25,9 @@ const generate = (map , mmap) => {
                 pjs : {}
             };
             for(let _y = 0; _y < mmap ; _y ++){
-                for(let _x; _x < mmap ; _x ++){
-                    
+                for(let _x = 0; _x < mmap ; _x ++){
+                    if(_y == 0 || _y == (mmap-1) &&
+                    _x == 0 || _x == (mmap - 1)) objects[]
                 }
             }
             fs.writeFileSync(config.DB + "/maps/" + x + "_" + y + ".json" , JSON.stringify(map) ,"utf-8");
