@@ -37,6 +37,7 @@ class ChatEngine {
                 for (let _chat in this.chats) {
                     fs.writeFile(config.DB + "/chats/" + _chat + ".json", JSON.stringify(this.chats[_chat]), ()=> {});
                 }
+                console.log("Chats saved!")
             }
         }]);
         timer.start();
