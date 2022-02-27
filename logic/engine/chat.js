@@ -10,15 +10,16 @@ class ChatEngine{
             comerce = [],
             system = [],
             staff = [],
-            party = {},
-            private = {}
+            partys = {},
+            guilds = {},
+            privates = {}
         }
     }
     
     load(){
  
         for(let _chat in this.chats){
-            this.chats[_chat]
+            this.chats[_chat] = JSON.parse(fs.readFileSync(config.DB + "/chats/" + _chat + ".json"));
         }
     }
 };
