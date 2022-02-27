@@ -2,12 +2,10 @@
 
 const fs = require("fs");
 const config = require("../../config.js");
-const {
-    TaskTimer
-} = require("tasktimer");
+const {TaskTimer} = require("tasktimer");
 
 class ChatEngine {
-    constructor() {
+    constructor(io , socket , username) {
         this.chats = {
             global: [],
             comerce: [],
@@ -16,7 +14,10 @@ class ChatEngine {
             partys: {},
             guilds: {},
             privates: {}
-        }
+        };
+        this.io = io;
+        this.socket = socket;
+        this.username = username;
     }
     /* Load Chats from db*/
     load() {
@@ -25,6 +26,8 @@ class ChatEngine {
             this.chats[_chat] = JSON.parse(fs.readFileSync(config.DB + "/chats/" + _chat + ".json"));
         }
         console.timeEnd("Chats loaded in ");
+        //starting chat saving
+        this.save();
     }
     /* Save Chats to db */
     save() {
@@ -42,7 +45,10 @@ class ChatEngine {
         }]);
         timer.start();
     }
-    
+    /* Send Message */
+    send(room , nickname , type , message){
+        
+    }
 
 };
 
