@@ -15,7 +15,7 @@ class ChatEngine{
             privates : {}
         }
     }
-    
+    /* Load Chats from db*/
     load(){
         console.time("Chats loaded in ");
         for(let _chat in this.chats){
@@ -23,6 +23,11 @@ class ChatEngine{
         }
         console.timeEnd("Chats loaded in ");
     }
+    /* Save Chats to db */
+    save(){
+        
+    }
+    
 };
 
 module.exports = ChatEngine;
