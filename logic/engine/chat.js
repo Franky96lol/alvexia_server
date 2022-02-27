@@ -11,6 +11,7 @@ class ChatEngine {
             comerce: [],
             system: [],
             staff: [],
+            zones: {},
             partys: {},
             guilds: {},
             privates: {}
