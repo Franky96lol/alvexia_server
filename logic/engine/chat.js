@@ -5,7 +5,7 @@ const config = require("../../config.js");
 
 class ChatEngine{
     constructor(){
-        this.chat = {
+        this.chats = {
             global = [],
             comerce = [],
             system = [],
@@ -16,9 +16,9 @@ class ChatEngine{
     }
     
     load(){
-        const chats = fs.readdirSync(config.DB + "/chats/");
-        for(let chat of chats){
-            
+ 
+        for(let _chat in this.chats){
+            this.chats[_chat]
         }
     }
 };
