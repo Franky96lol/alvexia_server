@@ -1,4 +1,4 @@
-/* Chat Engine */
+/* Chat Socket */
 
 const config = require("../../config.js");
 
