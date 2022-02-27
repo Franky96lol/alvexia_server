@@ -42,6 +42,7 @@ class ChatEngine {
         }]);
         timer.start();
     }
+    
 
 };
 
