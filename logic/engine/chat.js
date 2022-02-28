@@ -6,7 +6,7 @@ const {TaskTimer} = require("tasktimer");
 const uid = require(config.LOGIC + "/uid.js");
 
 class ChatEngine {
-    constructor(io) {
+    constructor() {
         this.chats = {
             global: [],
             comerce: [],
@@ -17,7 +17,6 @@ class ChatEngine {
             guilds: {},
             privates: {}
         };
-        this.io = io;
     }
     /* Load Chats from db*/
     load() {
@@ -46,7 +45,7 @@ class ChatEngine {
         timer.start();
     }
     /* Send Message */
-    send(type,room,username,nickname,typem,message) {
+    send(io,type,room,username,nickname,typem,message) {
 
         if (type == "privates" || type == "guilds" || type == "partys" || type == "zones") {
             this.chats[type][room].push(
@@ -67,7 +66,7 @@ class ChatEngine {
                 message
             );
         }
-        this.io.to(room).emit("message" , 
+        io.to(room).emit("message" , 
             type + "&" +
             room + "&" +
             username + "&" +
@@ -76,20 +75,34 @@ class ChatEngine {
             message);
     }
     
+    /* Load Chats */
+    loadChats(io , username , socket){
+        for(let _chat of global.users[username].chats.chats){
+            
+        }
+    }
+    
     /* Join Chatroom */
-    join(username , room){
+    join(io , username , room){
         if(!global.users[username].chats.chats.includes(room)) global.users[username].chats.chats.push(room);
-        this.io.sockets[username].join(room);
+        io.sockets[username].join(room);
     }
     
     /* Leave Chatroom */
-    leave(username , room){
-        if(global.users[username].chats.chats.includes(room)) global.users[username].chats.chats.push(room);
-        this.io.sockets[username].leave(room);
+    leave(io , username , room){
+        if(global.users[username].chats.chats.includes(room)) {
+            global.users[username].chats.chats.splice(global.users[username].chats.chats.indexOf(room) , 1);
+        }
+        io.sockets[username].leave(room);
     }
     
     /* Join Private */
-    joinPrivate(username , username2){
+    joinPrivate(io , username , username2){
+        
+    }
+    
+    /* Leave Private */
+    leavePrivate(io , username , room){
         
     }
 
