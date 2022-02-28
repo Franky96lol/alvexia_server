@@ -47,8 +47,18 @@ class ChatEngine {
         timer.start();
     }
     /* Send Message */
-    send(room , nickname , type , message){
-        
+    send(type , room , nickname , typem , message){
+        this.chats[type][room].push({
+            username : username,
+            nickname : nickname,
+            typem : typem,
+            message : message
+        });
+        if(type == "privates" || type == "guilds" || type == "partys" || type == "zones"){
+            
+        }else{
+            
+        }
     }
 
 };
