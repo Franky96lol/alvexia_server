@@ -77,9 +77,15 @@ class ChatEngine {
     
     /* Load Chats */
     loadChats(io , username , socket){
-        for(let _chat of global.users[username].chats.chats){
-            
+        let c = [];
+        let _ch = global.users[username].chats;
+        for(let _chat of _ch.chats){
+            c = c.concat(this.chats[_chat]);
         }
+        if(_ch.party != "") c = c.concat(this.chats["partys"][_ch.party]);
+        if(_ch.guild != "") c = c.concat(this.chats["guilds"][_ch.guild]);
+        if(_ch.zone != "") c = c.concat(this.chats["zones"][_ch.zone]);
+        socket.emit("load_chat" , c);
     }
     
     /* Join Chatroom */
