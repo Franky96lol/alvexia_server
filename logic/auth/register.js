@@ -221,7 +221,8 @@ const register = (req, res) => {
         },
         skin : "hero_male_1",
         chats : {
-            chats : [],
+            chats : ["global",
+            "system","comerce"],
             privates : []
         },
         isOnline: false,
