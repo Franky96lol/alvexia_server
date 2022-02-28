@@ -47,7 +47,7 @@ class ChatEngine {
         timer.start();
     }
     /* Send Message */
-    send(type,room,nickname,typem,message) {
+    send(type,room,username,nickname,typem,message) {
 
         if (type == "privates" || type == "guilds" || type == "partys" || type == "zones") {
             this.chats[type][room].push(
@@ -56,11 +56,18 @@ class ChatEngine {
                 typem + "&" +
                 message
             );
-            this.io.to(room).emit("message" , username + "&" +
+        } else {
+            this.chats[room].push(
+                username + "&" +
                 nickname + "&" +
                 typem + "&" +
-                message)
-        } else {}
+                message
+            );
+        }
+        this.io.to(room).emit("message" , username + "&" +
+            nickname + "&" +
+            typem + "&" +
+            message);
     }
 
 };
