@@ -64,7 +64,8 @@ class ChatEngine {
                 message
             );
         }
-        this.io.to(room).emit("message" , username + "&" +
+        this.io.to(room).emit("message" , 
+            username + "&" +
             nickname + "&" +
             typem + "&" +
             message);
