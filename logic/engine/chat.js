@@ -50,6 +50,8 @@ class ChatEngine {
 
         if (type == "privates" || type == "guilds" || type == "partys" || type == "zones") {
             this.chats[type][room].push(
+                type + "&" +
+                room + "&" +
                 username + "&" +
                 nickname + "&" +
                 typem + "&" +
@@ -57,6 +59,8 @@ class ChatEngine {
             );
         } else {
             this.chats[room].push(
+                type + "&" +
+                room + "&" +
                 username + "&" +
                 nickname + "&" +
                 typem + "&" +
@@ -71,6 +75,7 @@ class ChatEngine {
     }
     
     /* Join Chatroom */
+    join()
 
 };
 
