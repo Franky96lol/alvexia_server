@@ -2,9 +2,8 @@
 
 const fs = require("fs");
 const config = require("../../config.js");
-const {
-    TaskTimer
-} = require("tasktimer");
+const {TaskTimer} = require("tasktimer");
+const uid = require(config.LOGIC + "/uid.js");
 
 class ChatEngine {
     constructor(io) {
@@ -70,6 +69,8 @@ class ChatEngine {
             typem + "&" +
             message);
     }
+    
+    /* Join Chatroom */
 
 };
 
