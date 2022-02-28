@@ -220,6 +220,10 @@ const register = (req, res) => {
             mount: "na"
         },
         skin : "hero_male_1",
+        chats : {
+            chats : [],
+            privates : []
+        },
         isOnline: false,
         lastTimeOnline: new Date().getTime(),
         isOnCombat: false,
