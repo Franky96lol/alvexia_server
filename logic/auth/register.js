@@ -223,6 +223,9 @@ const register = (req, res) => {
         chats : {
             chats : ["global",
             "system","comerce"],
+            party : "",
+            guild : "",
+            zone : "",
             privates : []
         },
         isOnline: false,
