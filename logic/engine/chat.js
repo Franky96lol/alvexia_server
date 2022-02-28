@@ -68,6 +68,8 @@ class ChatEngine {
             );
         }
         this.io.to(room).emit("message" , 
+            type + "&" +
+            room + "&" +
             username + "&" +
             nickname + "&" +
             typem + "&" +
@@ -75,7 +77,20 @@ class ChatEngine {
     }
     
     /* Join Chatroom */
-    join()
+    join(username , room){
+        if(!global.users[username].chats.chats.includes(room)) 
+        this.io.sockets[username].join(room);
+    }
+    
+    /* Leave Chatroom */
+    leave(username , room){
+        this.io.sockets[username].leave(room);
+    }
+    
+    /* Join Private */
+    joinPrivate(username , username2){
+        
+    }
 
 };
 
