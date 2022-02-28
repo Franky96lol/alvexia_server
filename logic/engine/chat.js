@@ -7,7 +7,7 @@ const {
 } = require("tasktimer");
 
 class ChatEngine {
-    constructor(io, socket, username) {
+    constructor(io) {
         this.chats = {
             global: [],
             comerce: [],
@@ -19,8 +19,6 @@ class ChatEngine {
             privates: {}
         };
         this.io = io;
-        this.socket = socket;
-        this.username = username;
     }
     /* Load Chats from db*/
     load() {
@@ -49,20 +47,19 @@ class ChatEngine {
         timer.start();
     }
     /* Send Message */
-    send(type,
-        room,
-        nickname,
-        typem,
-        message) {
+    send(type,room,nickname,typem,message) {
 
         if (type == "privates" || type == "guilds" || type == "partys" || type == "zones") {
-            this.chats[type][room].push({
-                username: username,
-                nickname: nickname,
-                typem: typem,
-                message: message
-            });
-            this.io.to(room).emit("message" , )
+            this.chats[type][room].push(
+                username + "&" +
+                nickname + "&" +
+                typem + "&" +
+                message
+            );
+            this.io.to(room).emit("message" , username + "&" +
+                nickname + "&" +
+                typem + "&" +
+                message)
         } else {}
     }
 
