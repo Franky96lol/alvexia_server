@@ -81,6 +81,9 @@ io.on("connection", (socket) => {
         socket.disconnect();
         return;
     }
+    
+    io.sockets[username] = socket;
+    
     socketing(io, socket, username);
 });
 
