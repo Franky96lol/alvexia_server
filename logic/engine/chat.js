@@ -2,10 +2,12 @@
 
 const fs = require("fs");
 const config = require("../../config.js");
-const {TaskTimer} = require("tasktimer");
+const {
+    TaskTimer
+} = require("tasktimer");
 
 class ChatEngine {
-    constructor(io , socket , username) {
+    constructor(io, socket, username) {
         this.chats = {
             global: [],
             comerce: [],
@@ -47,18 +49,21 @@ class ChatEngine {
         timer.start();
     }
     /* Send Message */
-    send(type , room , nickname , typem , message){
-        this.chats[type][room].push({
-            username : username,
-            nickname : nickname,
-            typem : typem,
-            message : message
-        });
-        if(type == "privates" || type == "guilds" || type == "partys" || type == "zones"){
-            
-        }else{
-            
-        }
+    send(type,
+        room,
+        nickname,
+        typem,
+        message) {
+
+        if (type == "privates" || type == "guilds" || type == "partys" || type == "zones") {
+            this.chats[type][room].push({
+                username: username,
+                nickname: nickname,
+                typem: typem,
+                message: message
+            });
+            this.io.to(room).emit("message" , )
+        } else {}
     }
 
 };
