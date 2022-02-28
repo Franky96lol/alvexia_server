@@ -78,12 +78,13 @@ class ChatEngine {
     
     /* Join Chatroom */
     join(username , room){
-        if(!global.users[username].chats.chats.includes(room)) 
+        if(!global.users[username].chats.chats.includes(room)) global.users[username].chats.chats.push(room);
         this.io.sockets[username].join(room);
     }
     
     /* Leave Chatroom */
     leave(username , room){
+        if(global.users[username].chats.chats.includes(room)) global.users[username].chats.chats.push(room);
         this.io.sockets[username].leave(room);
     }
     
