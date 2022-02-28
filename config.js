@@ -17,7 +17,8 @@ const config = {
         regen : 10,
         users_save : 60,
         world_save : 60,
-        material_gen : 60
+        material_gen : 60,
+        chat_save : 60
     },
     HERO_SIZE : "1_1",
     PSTART : {
