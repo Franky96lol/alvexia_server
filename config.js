@@ -1,6 +1,6 @@
 /* Base Config */
 const config = { 
-    URL: "https://alvexia.com", 
+    URL: "https://alvexia-server.glitch.com", 
     PORT: process.env.PORT || 8081, //port
     DIRNAME: __dirname, //root folder
     DB: __dirname + "/database", //database
