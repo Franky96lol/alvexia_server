@@ -48,6 +48,7 @@ class ChatEngine {
     send(io,type,room,username,nickname,typem,message) {
 
         if (type == "privates" || type == "guilds" || type == "partys" || type == "zones") {
+            if(this.chats[type][room].length > config.RATES.max_sms) this.chats[type][room].shift();
             this.chats[type][room].push(
                 type + "&" +
                 room + "&" +
