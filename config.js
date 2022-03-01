@@ -18,7 +18,9 @@ const config = {
         users_save : 60,
         world_save : 60,
         material_gen : 60,
-        chat_save : 60
+        chat_save : 60,
+        max_sms : 20,
+        max_gsms : 25
     },
     HERO_SIZE : "1_1",
     PSTART : {
