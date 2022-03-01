@@ -6,9 +6,11 @@ ChatEngine.load();
 
 const chat = (io , socket , username) => {
     ChatEngine.loadChat(io , username , socket);
-    
+    /* On Message */
+    /* @params String(type , room , typem , message) */
     socket.on("message" , async (data) => {
-        await ChatEngine.send()
+        data = data.split("&");
+        await ChatEngine.send(io , data[0] , data[1], username , global.users[username].nickname , data[2] , data[3]);
     });
 };
 
