@@ -58,6 +58,7 @@ class ChatEngine {
                 message
             );
         } else {
+            if(this.chats[room].length > config.RATES.max_gsms) this.chats[room].shift();
             this.chats[room].push(
                 type + "&" +
                 room + "&" +
