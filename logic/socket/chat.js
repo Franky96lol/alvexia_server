@@ -12,6 +12,14 @@ const chat = (io , socket , username) => {
         data = data.split("&");
         await ChatEngine.send(io , data[0] , data[1], username , global.users[username].nickname , data[2] , data[3]);
     });
+    
+    socket.on("join" , async (room) => {
+        await ChatEngine.join(username , room);
+    });
+    
+    socket.on("leave" , async (room) => {
+        await ChatEngine.leave(username , room);
+    });
 };
 
 module.exports = chat;
