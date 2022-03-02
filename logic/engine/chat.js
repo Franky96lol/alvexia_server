@@ -137,6 +137,14 @@ class ChatEngine {
         if(global.users[username].chats.privates[room] != undefined) {
             delete global.users[username].chats.privates[room];
         }
+        if(this.chats.privates[room] != undefined) this.chats.privates[room].push({
+            "privates" + "&" +
+            room + "&" +
+            "Sistema" + "&" +
+            "Sistema" + "&" +
+            "text" + "&" +
+            "El jugador " + global.users[username].nickname + " abandono el chat privado."
+        });
     }
 
 };
