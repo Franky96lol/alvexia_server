@@ -137,7 +137,7 @@ class ChatEngine {
             "text" + "&" +
             "El jugador " + global.users[username].nickname + " inicio un chat privado."
             
-        })
+        });
     }
     
     /* Leave Private */
@@ -154,6 +154,16 @@ class ChatEngine {
             "text" + "&" +
             "El jugador " + global.users[username].nickname + " abandono el chat."
             });
+            io.to(room).emit("message" , {
+            "privates" + "&" +
+            id + "&" +
+            "Sistema" + "&" +
+            "Sistema" + "&" +
+            "text" + "&" +
+            "El jugador " + global.users[username].nickname + " abandono el chat."
+            
+        })
+        
     }
 
 };
