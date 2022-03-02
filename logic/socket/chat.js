@@ -27,10 +27,15 @@ const chat = (io , socket , username) => {
         await ChatEngine.leave(username , room);
     });
     /* On Join Private Channel */
-    /* @params String(username) */
-    socket.on("joinPrivate" , async(username2) =>{
+    /* @params String(username2) */
+    socket.on("joinPrivate" , async (username2) =>{
         await ChatEngine.joinPrivate(io , username , username2);
-    })
+    });
+    /* On Leave Private Channel */
+    /* @params String(room) */
+    socket.on("leavePrivate" , async (room) => {
+        await ChatEngine.leavePrivate(io , username , username2);
+    });
 };
 
 module.exports = chat;
