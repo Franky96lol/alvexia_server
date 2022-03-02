@@ -129,6 +129,15 @@ class ChatEngine {
             "text" + "&" +
             "El jugador " + global.users[username].nickname + " inicio un chat privado."
         }];
+        io.to(id).emit("message" , {
+            "privates" + "&" +
+            id + "&" +
+            "Sistema" + "&" +
+            "Sistema" + "&" +
+            "text" + "&" +
+            "El jugador " + global.users[username].nickname + " inicio un chat privado."
+            
+        })
     }
     
     /* Leave Private */
