@@ -191,20 +191,12 @@ const register = (req, res) => {
         },
         attributes: {
             points: 0,
-            phy_attack: 0,
-            mgc_attack: 0,
-            attack_speed: 0,
-            crit: 5,
-            dodge: 5,
-            phy_armor: 0,
-            mgc_armor: 0,
-            hp: 100,
-            hp_reg: 5,
-            mp: 50,
-            mp_reg: 2.5,
-            move_speed: 10,
-            extra_gold : 0,
-            extra_xp : 0
+            hp : 0,
+            mp : 0,
+            str : 0,
+            agi : 0,
+            int : 0,
+            luck : 0
         },
         equiped: {
             first_hand: "na",
@@ -296,7 +288,7 @@ const generateColor = () => {
     const randomColor = (
         Math.floor(Math.random() * (16777215 - 5000000)) + 5000000
     ).toString(16);
-    return randomColor;
+    return "#" + randomColor;
 };
 
 const validateEmail = (email) => {
