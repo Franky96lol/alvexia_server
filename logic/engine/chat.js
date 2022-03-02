@@ -116,6 +116,7 @@ class ChatEngine {
     
     /* Join Private */
     joinPrivate(io , username , username2){
+        if(global.users[username2] == undefined) return;
         const id = uid.alphanum(5);
         io.sockets[username].join(id);
         global.users[username].chats.private.push(id);
