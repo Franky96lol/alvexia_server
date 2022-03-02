@@ -37,7 +37,8 @@ loader.world();
 //Items
 global.items = {};
 loader.items();
-
+//Player status
+global.stats = {};
 
 
 /* Starting Game Engine */
