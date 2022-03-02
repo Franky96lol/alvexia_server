@@ -78,7 +78,7 @@ class ChatEngine {
     }
     
     /* Load Chats */
-    loadChats(io , username , socket){
+    loadChat(io , username , socket){
         let c = [];
         let _ch = global.users[username].chats;
         for(let _chat of _ch.chats){
@@ -157,7 +157,7 @@ class ChatEngine {
             );
             io.to(room).emit("message" , 
             "privates" + "&" +
-            id + "&" +
+            room + "&" +
             "Sistema" + "&" +
             "Sistema" + "&" +
             "text" + "&" +
