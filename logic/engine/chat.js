@@ -122,15 +122,15 @@ class ChatEngine {
         global.users[username].chats.private.push(id);
         global.users[username2].chats.private.push(id);
         if(global.users[username2].isOnline) io.sockets[username2].join(id);
-        this.chats.privates[id] = [{
+        this.chats.privates[id] = [
             "privates" + "&" +
             id + "&" +
             "Sistema" + "&" +
             "Sistema" + "&" +
             "text" + "&" +
             "El jugador " + global.users[username].nickname + " inicio un chat privado."
-        }];
-        io.to(id).emit("message" , {
+        ];
+        io.to(id).emit("message" , 
             "privates" + "&" +
             id + "&" +
             "Sistema" + "&" +
@@ -138,7 +138,7 @@ class ChatEngine {
             "text" + "&" +
             "El jugador " + global.users[username].nickname + " inicio un chat privado."
             
-        });
+        );
     }
     
     /* Leave Private */
@@ -147,15 +147,15 @@ class ChatEngine {
         if(global.users[username].chats.privates[room] != undefined) {
             delete global.users[username].chats.privates[room];
         }
-        if(this.chats.privates[room] != undefined) this.chats.privates[room].push({
+        if(this.chats.privates[room] != undefined) this.chats.privates[room].push(
             "privates" + "&" +
             room + "&" +
             "Sistema" + "&" +
             "Sistema" + "&" +
             "text" + "&" +
             "El jugador " + global.users[username].nickname + " abandono el chat."
-            });
-            io.to(room).emit("message" , {
+            );
+            io.to(room).emit("message" , 
             "privates" + "&" +
             id + "&" +
             "Sistema" + "&" +
@@ -163,7 +163,7 @@ class ChatEngine {
             "text" + "&" +
             "El jugador " + global.users[username].nickname + " abandono el chat."
             
-        })
+        )
         
     }
 
