@@ -34,7 +34,7 @@ const chat = (io , socket , username) => {
     /* On Leave Private Channel */
     /* @params String(room) */
     socket.on("leavePrivate" , async (room) => {
-        await ChatEngine.leavePrivate(io , username , username2);
+        await ChatEngine.leavePrivate(io , username , room);
     });
 };
 
