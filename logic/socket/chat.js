@@ -1,7 +1,7 @@
 /* Chat Socket */
 
 const config = require("../../config.js");
-const ChatEngine = new require(config.LOGIC + "/engine/chat.js")();
+const ChatEngine = new (require(config.LOGIC + "/engine/chat.js"))();
 ChatEngine.load();
 
 const chat = (io , socket , username) => {
