@@ -143,8 +143,8 @@ class ChatEngine {
             "Sistema" + "&" +
             "Sistema" + "&" +
             "text" + "&" +
-            "El jugador " + global.users[username].nickname + " abandono el chat privado."
-        });
+            "El jugador " + global.users[username].nickname + " abandono el chat."
+            });
     }
 
 };
