@@ -116,7 +116,11 @@ class ChatEngine {
     
     /* Join Private */
     joinPrivate(io , username , username2){
-        
+        const id = uid.alphanum(5);
+        io.sockets[username].join(id);
+        global.users[username].chats.private.push(id);
+        global.users[username2].chats.private.push(id);
+        if(global.users[username2].isOnline) io.sockets[username2].join(id);
     }
     
     /* Leave Private */
