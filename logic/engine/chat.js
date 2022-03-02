@@ -121,11 +121,22 @@ class ChatEngine {
         global.users[username].chats.private.push(id);
         global.users[username2].chats.private.push(id);
         if(global.users[username2].isOnline) io.sockets[username2].join(id);
+        this.chats.privates[id] = [{
+            "privates" + "&" +
+            id + "&" +
+            "Sistema" + "&" +
+            "Sistema" + "&" +
+            "text" + "&" +
+            "El jugador " + global.users[username].nickname + " inicio un chat privado."
+        }];
     }
     
     /* Leave Private */
     leavePrivate(io , username , room){
-        
+        io.sockets[username].leave(room);
+        if(global.users[username].chats.privates[room] != undefined) {
+            delete global.users[username].chats.privates[room];
+        }
     }
 
 };
