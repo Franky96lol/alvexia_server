@@ -4,7 +4,7 @@ const fs = require("fs");
 const config = require("../config.js");
 
 /* Loading users from database to server */
-const users = () => {
+function users () {
     console.time("Users loaded in");
     const accounts = fs.readdirSync(config.DB + "/accounts/");
     for (let acc of accounts) {
@@ -13,7 +13,7 @@ const users = () => {
     console.timeEnd("Users loaded in");
 };
 
-const objects = () => {
+function objects () {
     console.time("Objects loaded in");
     const _objects = fs.readdirSync(config.DB + "/objects/");
     for (let obj of _objects) {
@@ -23,7 +23,7 @@ const objects = () => {
 };
 
 /* Loading world from database to server */
-const world = () => {
+function world () {
     console.time("World loaded in");
     const worlds = fs.readdirSync(config.DB + "/maps/");
     for (let map of worlds) {
@@ -33,7 +33,7 @@ const world = () => {
 };
 
 /* Loading items from database to server */
-const items = () => {
+function items () {
     console.time("Items loaded in");
     const _items = fs.readdirSync(config.DB + "/items/");
     for (let item of _items) {
