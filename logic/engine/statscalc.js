@@ -4,7 +4,7 @@ const config = require("../../config.js");
 const stats_per_attr = {
     sta : {
         hp : 5,
-        hp_reg : 0.05
+        hp_reg : 0.05,
         mp : 5,
         mp_reg : 0.05
     },
@@ -37,14 +37,14 @@ const pos_attr = ["sta" , "str" , "agi" , "int" , "luck"];
 const pos_stats = ["hp" , "hp_reg" , "mp" , "mp_reg" , "phy_dmg" , "phy_def" , "mgc_dmg" , "mgc_def" , "crit" , "dodge" , "extra_gold" , "extra_xp" , "extra_drop"];
 
 async function statscalc (username) {
-    const base_attr = {
+    let base_attr = {
         sta: 0,
         str: 0,
         agi: 0,
         int: 0,
         luck: 0
     };
-    const base_stats = {
+    let base_stats = {
         hp : 50,
         hp_reg : 1,
         mp : 50,
@@ -85,7 +85,7 @@ async function statscalc (username) {
     }
     
     const xp = Math.floor(Math.pow((acc.level + 4), 3));
-    await global.stats[username] = {
+    global.stats[username] = {
         attr : base_attr,
         stats : base_stats,
         xp : xp
