@@ -36,7 +36,7 @@ const stats_per_attr = {
 const pos_attr = ["sta" , "str" , "agi" , "int" , "luck"];
 const pos_stats = ["hp" , "hp_reg" , "mp" , "mp_reg" , "phy_dmg" , "phy_def" , "mgc_dmg" , "mgc_def" , "crit" , "dodge" , "extra_gold" , "extra_xp" , "extra_drop"];
 
-function statscalc (username) {
+async function statscalc (username) {
     const base_attr = {
         sta: 0,
         str: 0,
@@ -85,7 +85,7 @@ function statscalc (username) {
     }
     
     const xp = Math.floor(Math.pow((acc.level + 4), 3));
-    global.stats[username] = {
+    await global.stats[username] = {
         attr : base_attr,
         stats : base_stats,
         xp : xp
