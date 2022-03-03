@@ -48,7 +48,7 @@ const Engine = new GEngine(io).start();
 /* Express router */
 app.use("/", router);
 // Wakeup route
-app.post("/wakeup", (req, res) => {
+app.post("/wakeup", function (req, res){
     res.json({
         status: true
     });
@@ -65,7 +65,7 @@ server.listen(config.PORT, function (){
 });
 
 /* Socket Connection */
-io.on("connection", function (socket) {
+io.on("connection", async function (socket) {
     if (socket.handshake.query.username == undefined || socket.handshake.query.token == undefined) {
         socket.disconnect();
         return;
@@ -88,7 +88,7 @@ io.on("connection", function (socket) {
     
     io.sockets[username] = socket;
     
-    socketing(io, socket, username);
+    await socketing(io, socket, username);
 });
 
 console.timeEnd("Server loaded in")
