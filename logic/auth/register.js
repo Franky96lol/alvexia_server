@@ -8,7 +8,7 @@ const bcrypt = require("bcryptjs");
 * @params res {}
 */
 
-const register = (req, res) => {
+function register (req, res) {
 
     let username,
     email,
@@ -284,19 +284,19 @@ const register = (req, res) => {
     }
 }
 
-const generateColor = () => {
+function generateColor () {
     const randomColor = (
         Math.floor(Math.random() * (16777215 - 5000000)) + 5000000
     ).toString(16);
     return "#" + randomColor;
 };
 
-const validateEmail = (email) => {
+function validateEmail (email) {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
 }
 
-const existsEmail = (_email) => {
+function existsEmail (_email) {
     let emails = JSON.parse(fs.readFileSync(config.DB + "/emails.json",
         "utf-8"));
 
@@ -306,7 +306,7 @@ const existsEmail = (_email) => {
     return false;
 }
 
-const setEmail = (_email) => {
+function setEmail (_email) {
     let emails = JSON.parse(fs.readFileSync(config.DB + "/emails.json", "utf-8"));
 
     emails.push(_email);
