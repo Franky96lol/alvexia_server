@@ -21,7 +21,7 @@ timer.add([{
     }
 }]);
 
-const users_save = () => {
+function users_save () {
     console.time("Accounts database saved in");
     for(let user in global.users){
         fs.writeFile(config.DB + "/accounts/" + user + ".json" , JSON.stringify(global.users[user]) , ()=>{});
@@ -29,7 +29,7 @@ const users_save = () => {
     console.timeEnd("Accounts database saved in");
 };
 
-const world_save = () => {
+function world_save (){
     console.time("World saved in");
     for(let map in global.world){
         fs.writeFile(config.DB + "/maps/" + map + ".json" , JSON.stringify(global.world[map]), ()=>{});
@@ -37,11 +37,11 @@ const world_save = () => {
     console.timeEnd("World saved in");
 };
 
-const start = () => {
+function start () {
     timer.start();
 };
 
-const stop = () => {
+function stop () {
     timer.stop();
 };
 
