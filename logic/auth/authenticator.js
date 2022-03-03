@@ -2,7 +2,7 @@ const config = require("../../config.js");
 
 const jwt = require("jsonwebtoken");
 
-const generate = (_id) => {
+function generate (_id) {
     if (_id == null || _id == undefined) return null;
     return jwt.sign({
         id: _id
@@ -11,7 +11,7 @@ const generate = (_id) => {
     });
 }
 
-const verify = (_token) => {
+function verify (_token) {
     let token;
 
     if (_token != undefined) token = _token;
