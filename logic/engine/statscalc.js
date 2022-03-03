@@ -1,6 +1,15 @@
 /* Stadistics Calculator */
 const config = require("../../config.js");
 
+const base_stats = {
+    hp : 0,
+    mp : 0,
+    str : 0,
+    agi : 0,
+    int : 0,
+    luck : 0
+}
+
 const statscalc = (username) => {
     const acc = global.users[username];
     delete acc.attributes.points;
