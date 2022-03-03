@@ -54,15 +54,18 @@ app.post("/wakeup", (req, res) => {
     });
 });
 //Error route
-app.use((req, res) => res.json({
-    status: false, message: "ERROR 404"
-}));
+app.use((req, res) , function (){ 
+    res.json({
+    status: false, message: "ERROR 404"});
+});
 
 /* Http Server Start */
-server.listen(config.PORT, () => console.log("HTTP server running on port " + config.PORT));
+server.listen(config.PORT, function (){
+    console.log("HTTP server running on port " + config.PORT);
+});
 
 /* Socket Connection */
-io.on("connection", (socket) => {
+io.on("connection", function (socket) {
     if (socket.handshake.query.username == undefined || socket.handshake.query.token == undefined) {
         socket.disconnect();
         return;
