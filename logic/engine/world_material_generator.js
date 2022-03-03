@@ -13,7 +13,7 @@ timer.add([{
     }
 }]);
 
-const material_generator = (io) => {
+function material_generator  (io) {
     for(let map in global.world){
         for(let obj in global.world[map].objects){
             if(global.world[map].objects[obj].ammount < global.world[map].objects[obj].max_ammount){
@@ -25,11 +25,11 @@ const material_generator = (io) => {
     console.log("Material Generated.")
 };
 
-const start = () => {
+function start () {
     timer.start();
 };
 
-const stop = () => {
+function stop () {
     timer.stop();
 };
 
