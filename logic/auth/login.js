@@ -9,7 +9,7 @@ const bcrypt = require("bcryptjs");
 * @param res {}
 */
 
-const login = (req, res) => {
+function login (req, res) {
     if (!req.body) return;
     let username,
     password,
