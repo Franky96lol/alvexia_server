@@ -2,7 +2,7 @@
 const config = require("../../config.js");
 
 const statscalc = (username) => {
-    const acc = JSON.parse(JSON.stringify(global.users[username]));
+    const acc = global.users[username];
     delete acc.attributes.points;
     const attr = acc.attributes;
     const status = acc.status;
@@ -15,7 +15,7 @@ const statscalc = (username) => {
     }
     
     const exp = {
-        xp : Math.floor(Math.pow((acc.level + 5) , 3))
+        xp : Math.floor(Math.pow((acc.level + 4) , 3))
     };
     
     return {
