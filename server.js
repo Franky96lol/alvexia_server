@@ -54,7 +54,7 @@ app.post("/wakeup", function (req, res){
     });
 });
 //Error route
-app.use((req, res) , function (){ 
+app.use(function (req , res){ 
     res.json({
     status: false, message: "ERROR 404"});
 });
