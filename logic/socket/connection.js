@@ -2,19 +2,20 @@
 const config = require("../../config.js");
 const statscalc = require(config.LOGIC + "/engine/statscalc.js");
 
-const connection = (io, socket, username) => {
-    const acc = JSON.parse(JSON.stringify(global.users[username]));
-    const _stats = statscalc(username);
+async function connection (io, socket, username) {
+    const acc = global.users[username];
+    await statscalc(username);
+    const _stats = global.stats[username];
     const pjstats = {
         nickname: acc.nickname,
         status: {
             level: acc.level,
-            xp: _stats.exp.xp,
+            xp: _stats.xp,
             c_xp: acc.xp,
             hp: _stats.attr.hp,
             mp: _stats.attr.mp,
-            c_hp: _stats.status.hp,
-            c_mp: _stats.status.mp,
+            c_hp: acc.status.hp,
+            c_mp: acc.status.mp,
             speed : config.RATE.mov_speed
         },
         size : acc.size,
