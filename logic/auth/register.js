@@ -8,7 +8,7 @@ const bcrypt = require("bcryptjs");
 * @params res {}
 */
 
-function register (req, res) {
+async function register (req, res) {
 
     let username,
     email,
@@ -240,7 +240,7 @@ function register (req, res) {
     try {
         global.users[username] = account;
 
-        setEmail(email);
+        await setEmail(email);
         const nodemailer = require("nodemailer");
         const transport = nodemailer.createTransport({
             service: "gmail",
@@ -263,7 +263,7 @@ function register (req, res) {
             account.id
         };
 
-        transport.sendMail(message, function(err, info) {
+        await transport.sendMail(message, function(err, info) {
             if (err) {} else {}
         });
 
