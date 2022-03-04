@@ -9,7 +9,7 @@ const bcrypt = require("bcryptjs");
 * @param res {}
 */
 
-function login (req, res) {
+async function login (req, res) {
     if (!req.body) return;
     let username,
     password,
@@ -44,7 +44,7 @@ function login (req, res) {
         return;
     }
 
-    const account = global.users[username];
+    const account = await global.users[username];
 
     if (!bcrypt.compareSync(password, account.password)) {
         res.json({
