@@ -26,3 +26,9 @@ function materials(username){
     return {bags : global.users[username].bags , items : materials};
 }
 
+module.exports = {
+    armory,
+    consumables,
+    materials,
+    skins
+}
