@@ -12,11 +12,11 @@ async function connection (io, socket, username) {
             level: acc.level,
             xp: _stats.xp,
             c_xp: acc.xp,
-            hp: _stats.attr.hp,
-            mp: _stats.attr.mp,
+            hp: _stats.stats.hp,
+            mp: _stats.stats.mp,
             c_hp: acc.status.hp,
             c_mp: acc.status.mp,
-            speed : config.RATE.mov_speed
+            speed : _stats.stats.speed
         },
         size : acc.size,
         skin : acc.skin,
