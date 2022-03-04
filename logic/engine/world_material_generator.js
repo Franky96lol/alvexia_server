@@ -18,7 +18,6 @@ async function material_generator  (io) {
         for(let obj in global.world[map].objects){
             if(global.world[map].objects[obj].ammount < global.world[map].objects[obj].max_ammount){
                 global.world[map].objects[obj].ammount += 1;
-                await io.to("map_" + map).emit("obj_changed" , {id : obj , object : global.world[map].objects[obj]});
             }
         }
     }
