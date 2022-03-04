@@ -13,12 +13,12 @@ timer.add([{
     }
 }]);
 
-function material_generator  (io) {
+async function material_generator  (io) {
     for(let map in global.world){
         for(let obj in global.world[map].objects){
             if(global.world[map].objects[obj].ammount < global.world[map].objects[obj].max_ammount){
                 global.world[map].objects[obj].ammount += 1;
-                io.to("map_" + map).emit("obj_changed" , {id : obj , object : global.world[map].objects[obj]});
+                await io.to("map_" + map).emit("obj_changed" , {id : obj , object : global.world[map].objects[obj]});
             }
         }
     }
