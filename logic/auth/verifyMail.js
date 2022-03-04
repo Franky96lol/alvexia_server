@@ -1,5 +1,5 @@
 const config = require("../../config.js");
-function verifyMail (req, res) {
+async function verifyMail (req, res) {
     if (!req.params && !req.params.user && !req.param.id) {
         res.json({
             status: false, message: "error"
