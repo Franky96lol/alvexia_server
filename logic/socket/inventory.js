@@ -3,8 +3,8 @@
 const config = require("../../config.js");
 const inv = require(config.LOGIC + "/engine/inventory.js");
 
-function inventory(io , socket , username){
-    socket.on("inventory" , async function (data){
+async function inventory(io , socket , username){
+    await socket.on("inventory" , async function (data){
         switch(data){
             case "armory":
                 socket.emit("armory" , await inv.armory(username));
