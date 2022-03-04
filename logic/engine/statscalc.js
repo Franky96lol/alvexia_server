@@ -55,6 +55,7 @@ async function statscalc (username) {
         mgc_def : 1,
         crit : 1,
         dodge : 1,
+        speed : config.RATE.mov_speed,
         extra_gold : 0,
         extra_xp : 0,
         extra_drop : 0
