@@ -26,6 +26,11 @@ function materials(username){
     return {bags : global.users[username].bags , items : materials};
 }
 
+
+function skins(username){
+    return "skins";
+}
+
 module.exports = {
     armory,
     consumables,
