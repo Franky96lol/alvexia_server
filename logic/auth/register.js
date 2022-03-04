@@ -144,7 +144,7 @@ function register (req, res) {
             invites: []
         },
         mails: [],
-        bags : 2,
+        bags : 1,
         armory: [],
         consumables : [],
         materials: [],
