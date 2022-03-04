@@ -4,24 +4,24 @@ const config = require("../../config.js");
 
 async function armory(username){
     let armory = {};
-    for(let item of global.users[username].armory){
-        armory[item] = global.items[item];
+    for await(const item of global.users[username].armory){
+        armory[item] = await global.items[item];
     }
     return {bags : global.users[username].bags , items : armory};
 }
 
 async function consumables(username){
     let consumables = {};
-    for(let item of global.users[username].consumables){
-        consumables[item] = global.items[item];
+    for await(const item of global.users[username].consumables){
+        consumables[item] = await global.items[item];
     }
     return {bags : global.users[username].bags , items : consumables};
 }
 
 async function materials(username){
     let materials = {};
-    for(let item of global.users[username].materials){
-        materials[item] = global.items[item];
+    for await(const item of global.users[username].materials){
+        materials[item] = await global.items[item];
     }
     return {bags : global.users[username].bags , items : materials};
 }
