@@ -62,7 +62,7 @@ async function statscalc (username) {
     };
     const acc = global.users[username];
     const attr = acc.attributes;
-    const _status = acc.status;
+    //const _status = acc.status;
     const equipment = acc.equiped;
     
     for (let a in base_attr){
