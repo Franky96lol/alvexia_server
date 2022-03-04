@@ -65,23 +65,23 @@ async function statscalc (username) {
     //const _status = acc.status;
     const equipment = acc.equiped;
     
-    for (let a in base_attr){
-        base_attr += attr[a];
+    for await (let a in base_attr){
+        base_attr += await attr[a];
     }
 
-    for (let equip in equipment) {
-        for (let a in equip) {
+    for await (let equip in equipment) {
+        for await(let a in equip) {
             if(pos_attr.includes(a)){
-                base_attr += equip[a];
+                base_attr += await equip[a];
             }else if (pos_stats.includes(a)){
-                base_stats += equip[a];
+                base_stats += await equip[a];
             }
         }
     }
     
-    for (let a in base_attr){
-        for(let b in stats_per_attr[a]){
-            base_stats[b] += (stats_per_attr[a][b] * base_attr[a]);
+    for await (let a in base_attr){
+        for await (let b in stats_per_attr[a]){
+            base_stats[b] += await (stats_per_attr[a][b] * base_attr[a]);
         }
     }
     
