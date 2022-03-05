@@ -39,7 +39,18 @@ class Admin {
         if(global.user[username].acclevel < 3) return;
         
     }
+    
+    async ban(io , socket , username , banned){
+        if(global.user[username].acclevel < 3) return;
+        if(global.user[banned] != undefined && !config.STAFF.admins.includes(banned)){
+            global.user[banned].acclevel = 0;
+            await this.ChatEngine.send(io, "staff", "staff", "Sistema", "Sistema", "text", "El usuario " + banned + " ah sido baneado por " + username );
+            return;
+        }
+    }
 }
 module.exports = {
-    gm
+    gm,
+    tele,
+    ban
 };
