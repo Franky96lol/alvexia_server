@@ -70,11 +70,11 @@ async function statscalc (username) {
     }
 
     for (let equip in equipment) {
-        for (let a in equip) {
+        for (let a in global.items[equipment[equip].id]) {
             if(pos_attr.includes(a)){
-                base_attr += await equip[a];
+                base_attr += await global.items[equipment[equip].id][a];
             }else if (pos_stats.includes(a)){
-                base_stats += await equip[a];
+                base_stats += await global.items[equipment[equip].id][a];
             }
         }
     }
@@ -84,6 +84,8 @@ async function statscalc (username) {
             base_stats[b] += await (stats_per_attr[a][b] * base_attr[a]);
         }
     }
+    
+    console.log(base_stats);
     
     const xp = Math.floor(Math.pow((acc.level + 4), 3));
     global.stats[username] = {
