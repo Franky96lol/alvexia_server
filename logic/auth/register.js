@@ -199,17 +199,17 @@ async function register (req, res) {
             luck : 0
         },
         equiped: {
-            first_hand: "na",
-            second_hand: "na",
-            shoulders: "na",
-            neck: "na",
-            trinket: "na",
-            chest: "na",
-            gloves: "na",
-            ring: "na",
-            bracers: "na",
-            boots: "na",
-            mount: "na"
+            first_hand: {id :"na" , upg : 0},
+            second_hand: {id : "na", upg : 0},
+            shoulders: {id : "na", upg : 0},
+            neck: {id : "na", upg : 0},
+            trinket: {id : "na", upg : 0},
+            chest: {id : "na", upg : 0},
+            gloves: {id : "na", upg : 0},
+            ring: {id : "na", upg : 0},
+            bracers: {id : "na", upg : 0},
+            boots: {id : "na", upg : 0},
+            mount: {id : "na" , upg : 0}
         },
         skin : "hero_male_1",
         chats : {
