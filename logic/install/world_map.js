@@ -22,22 +22,17 @@ const generate = (map, mmap) => {
                 type: "neutral",
                 terrain: {},
                 objects: {},
+                triggers : {},
                 npcs: {},
                 pjs: {}
             };
-            for (let _y = 0; _y < mmap; _y ++) {
-                for (let _x = 0; _x < mmap; _x ++) {
-                    if (_y == 0 || _y == (mmap-1) &&
-                        _x == 0 || _x == (mmap - 1)) map.objects[_x + "_" + _y] = {
-                        name: "tree_1",
-                        faction: "silver_legion",
-                        amount: 1000,
-                        c_amount: 1000,
-                        size : "1_2",
-                        type: 0
-                    }
+            if(map.pos.x == 0 && map.pos.y == 0){
+                map.triggers["49_1"] = {
+                    t : "ca",
+                    tr : "1_0&0_1"
                 }
             }
+            
             fs.writeFileSync(config.DB + "/maps/" + x + "_" + y + ".json", JSON.stringify(map), "utf-8");
             }
         }
