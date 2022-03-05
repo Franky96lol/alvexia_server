@@ -23,6 +23,10 @@ const config = {
         max_sms : 20,
         max_gsms : 25
     },
+    STAFF : {
+        admins : ["Franky96"],
+        moderators : []
+    },
     HERO_SIZE : "1_1",
     PSTART : {
         map : "0_0",
