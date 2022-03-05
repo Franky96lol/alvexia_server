@@ -38,6 +38,7 @@ const Trigger = {
             skin: acc.skin,
             pos: pos
         };
+        global.users[username].pos = pos;
         await socket.join("map_" + pos.map);
         socket.broadcast.to("map_" + pos.map).emit("new_pj", {
             username: username, pjstats: pjstats
