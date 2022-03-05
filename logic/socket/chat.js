@@ -15,9 +15,11 @@ async function chat (io , socket , username) {
      */
     await socket.on("message" , async function (data){
         data = data.split("&");
-        if(data[3] == "/gm"){
-            await admin.gm(io , socket , username , ChatEngine);
-            return;
+        if(global.users[username].acclevel >= 3){
+            if(data[3] == "/gm"){
+                await admin.gm(io , socket , username , ChatEngine);
+                return;
+            }
         }
         await ChatEngine.send(io , data[0] , data[1], username , global.users[username].nickname , data[2] , data[3]);
     });
