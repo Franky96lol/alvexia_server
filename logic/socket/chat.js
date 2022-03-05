@@ -15,14 +15,21 @@ async function chat (io , socket , username) {
      */
     await socket.on("message" , async function (data){
         data = data.split("&");
+        /* If Admin 
+         * Check for commands */
         if(global.users[username].acclevel >= 3){
+            //God Mode
             if(data[3] == "/gm"){
                 await admin.gm(io , socket , username);
                 return;
-            }else if(data[3].includes("/tele ") && data[3].split(" ").length == 2){
+            }
+            //Teleport @params String(coords)
+            else if(data[3].includes("/tele ") && data[3].split(" ").length == 2){
                 await admin.tele(io , socket , username , data[3].split(" ")[1]);
                 return;
-            }else if(data[3].includes("/ban ") && data[3].split(" ").length == 2){
+            }
+            //Ban User @params String(username)
+            else if(data[3].includes("/ban ") && data[3].split(" ").length == 2){
                 await admin.ban(io , socket , username , data[3].split(" ")[1]);
                 return;
             }
