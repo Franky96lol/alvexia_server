@@ -45,7 +45,7 @@ class ChatEngine {
         timer.start();
     }
     /* Send Message */
-    send(io,type,room,username,nickname,typem,message) {
+    async send(io,type,room,username,nickname,typem,message) {
 
         if (type == "privates" || type == "guilds" || type == "partys" || type == "zones") {
             if(this.chats[type][room].length > config.RATES.max_sms) this.chats[type][room].shift();
@@ -68,7 +68,7 @@ class ChatEngine {
                 message
             );
         }
-        io.to(room).emit("message" , 
+        await io.to(room).emit("message" , 
             type + "&" +
             room + "&" +
             username + "&" +
@@ -78,7 +78,7 @@ class ChatEngine {
     }
     
     /* Load Chats */
-    loadChat(io , username , socket){
+    async loadChat(io , username , socket){
         let c = [];
         let _ch = global.users[username].chats;
         for(let _chat of _ch.chats){
@@ -97,25 +97,25 @@ class ChatEngine {
             c = c.concat(this.chats["zones"][_ch.zone]);
             socket.join(_ch.zone);
         }
-        socket.emit("load_chat" , c);
+        await socket.emit("load_chat" , c);
     }
     
     /* Join Chatroom */
-    join(io , username , room){
+    async join(io , username , room){
         if(!global.users[username].chats.chats.includes(room)) global.users[username].chats.chats.push(room);
-        io.sockets[username].join(room);
+        await io.sockets[username].join(room);
     }
     
     /* Leave Chatroom */
-    leave(io , username , room){
+    async leave(io , username , room){
         if(global.users[username].chats.chats.includes(room)) {
             global.users[username].chats.chats.splice(global.users[username].chats.chats.indexOf(room) , 1);
         }
-        io.sockets[username].leave(room);
+        await io.sockets[username].leave(room);
     }
     
     /* Join Private */
-    joinPrivate(io , username , username2){
+    async joinPrivate(io , username , username2){
         if(global.users[username2] == undefined) return;
         const id = uid.alphanum(5);
         io.sockets[username].join(id);
@@ -130,7 +130,7 @@ class ChatEngine {
             "text" + "&" +
             "El jugador " + global.users[username].nickname + " inicio un chat privado."
         ];
-        io.to(id).emit("message" , 
+        await io.to(id).emit("message" , 
             "privates" + "&" +
             id + "&" +
             "Sistema" + "&" +
@@ -142,7 +142,7 @@ class ChatEngine {
     }
     
     /* Leave Private */
-    leavePrivate(io , username , room){
+    async leavePrivate(io , username , room){
         io.sockets[username].leave(room);
         if(global.users[username].chats.privates[room] != undefined) {
             delete global.users[username].chats.privates[room];
@@ -155,7 +155,7 @@ class ChatEngine {
             "text" + "&" +
             "El jugador " + global.users[username].nickname + " abandono el chat."
             );
-            io.to(room).emit("message" , 
+            await io.to(room).emit("message" , 
             "privates" + "&" +
             room + "&" +
             "Sistema" + "&" +
