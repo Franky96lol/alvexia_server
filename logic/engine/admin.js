@@ -31,3 +31,5 @@ async function gm(io , socket , username){
         }
     }
 }
+
+module.exports = {gm};
