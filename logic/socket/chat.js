@@ -38,4 +38,4 @@ async function chat (io , socket , username) {
     });
 };
 
-module.exports = chat;
+module.exports = {chat , ChatEngine};
