@@ -19,7 +19,9 @@ async function chat (io , socket , username) {
             if(data[3] == "/gm"){
                 await admin.gm(io , socket , username , ChatEngine);
                 return;
-            }else if(data[3].includes("/tele ")){
+            }else if(data[3].includes("/tele ") && data[3].split(" ").length == 2){
+                await admin.tele(io , socket , username , ChatEngine)
+            }else if(data[3].includes("/ban ") && data[3].split(" ").length == 2){
                 
             }
         }
