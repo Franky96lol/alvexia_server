@@ -1,9 +1,8 @@
 /* Admin Panel */
 
 const config = require("../../config.js");
-const {ChatEngine} = require(config.LOGIC + "/socket/chat.js");
 
-async function gm(io , socket , username){
+async function gm(io , socket , username , ChatEngine){
     if(config.STAFF.moderator.includes(username)){
         if(global.users[username].acclevel < 4){
             global.users[username].acclevel = 4;
