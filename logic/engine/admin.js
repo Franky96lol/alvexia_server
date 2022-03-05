@@ -34,6 +34,11 @@ class Admin {
             }
         }
     }
+    
+    async tele(io , socket , username , coords){
+        if(global.user[username].acclevel < 3) return;
+        
+    }
 }
 module.exports = {
     gm
