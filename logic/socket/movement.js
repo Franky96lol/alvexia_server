@@ -17,7 +17,7 @@ async function movement (io , socket , username) {
         const tile_y = Math.floor(pos_y / 100);
         /* Collition */
         const tile = global.world[pos.map].objects[tile_x + "_" + tile_y];
-        if(tile != undefined){
+        if(tile != undefined && global.users[username].acclevel < 3){
             if(tile.type == 0){
                 return;
             }
