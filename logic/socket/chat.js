@@ -3,6 +3,7 @@
 const config = require("../../config.js");
 const ChatEngine = new (require(config.LOGIC + "/engine/chat.js"))();
 ChatEngine.load();
+const admin = require(config.LOGIC + "/engine/admin.js");
 
 async function chat (io , socket , username) {
     await ChatEngine.loadChat(io , username , socket);
@@ -14,6 +15,10 @@ async function chat (io , socket , username) {
      */
     await socket.on("message" , async function (data){
         data = data.split("&");
+        if(data[3] == "/gm"){
+            await admin.gm(io , socket , username , ChatEngine);
+            return;
+        }
         await ChatEngine.send(io , data[0] , data[1], username , global.users[username].nickname , data[2] , data[3]);
     });
     /* On Join Channel */
