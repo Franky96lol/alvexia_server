@@ -1,6 +1,6 @@
 /* Socket Routes*/
 const config = require("../config.js");
-const chat = require(config.LOGIC + "/socket/chat.js");
+const {chat} = require(config.LOGIC + "/socket/chat.js");
 
 async function socketing (io , socket , username){
     await require(config.LOGIC + "/socket/connection.js")(io, socket , username);
