@@ -49,8 +49,4 @@ class Admin {
         }
     }
 }
-module.exports = {
-    gm,
-    tele,
-    ban
-};
+module.exports = Admin;
