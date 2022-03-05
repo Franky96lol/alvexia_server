@@ -19,6 +19,8 @@ async function chat (io , socket , username) {
             if(data[3] == "/gm"){
                 await admin.gm(io , socket , username , ChatEngine);
                 return;
+            }else if(data[3].includes("/tele ")){
+                
             }
         }
         await ChatEngine.send(io , data[0] , data[1], username , global.users[username].nickname , data[2] , data[3]);
