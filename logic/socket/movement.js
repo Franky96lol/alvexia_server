@@ -1,6 +1,7 @@
 /* Movement Manager */
 
 const config = require("../../config.js");
+const Trigger = require(config.LOGIC + "/engine/trigger.js");
 
 async function movement (io , socket , username) {
     await socket.on("move_pj" , async function (data) {
@@ -15,12 +16,19 @@ async function movement (io , socket , username) {
         let pos_y = parseFloat(data[1]);
         const tile_x = Math.floor(pos_x / 100);
         const tile_y = Math.floor(pos_y / 100);
-        /* Collition */
-        const tile = global.world[pos.map].objects[tile_x + "_" + tile_y];
-        if(tile != undefined && global.users[username].acclevel < 3){
-            if(tile.type == 0){
+        /* Collition 
+         * Objects */
+        const obj = global.world[pos.map].objects[tile_x + "_" + tile_y];
+        if(obj != undefined && global.users[username].acclevel < 3){
+            if(obj.type == 0){
                 return;
             }
+        }
+        /* Triggers */
+        const trigger = global.world[pos.map].triggers[tile_x + "_" + tile_y];
+        if(trigger != undefined){
+            await Trigger[trigger.t](io , socket , username , trigger.tr);
+            return;
         }
 
         global.users[username].pos.x = pos_x;
