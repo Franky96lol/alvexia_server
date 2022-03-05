@@ -29,7 +29,13 @@ const generate = (map, mmap) => {
             if(map.pos.x == 0 && map.pos.y == 0){
                 map.triggers["49_1"] = {
                     t : "ca",
-                    tr : "1_0&0_1"
+                    tr : "1_0&1_1"
+                }
+            }
+            else if(map.pos.x == 1 && map.pos.y == 0){
+                map.triggers["0_1"] = {
+                    t : "ca",
+                    tr : "0_0&48_1"
                 }
             }
             
