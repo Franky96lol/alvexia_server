@@ -52,5 +52,13 @@ class Admin {
             return;
         }
     }
+    
+    async editObject(io , socket , username , object){
+        
+    }
+    
+    async editTrigger(io , socket , username , trigger){
+        
+    }
 }
 module.exports = Admin;
