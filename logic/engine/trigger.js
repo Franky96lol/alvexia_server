@@ -1,6 +1,6 @@
 /* Trigger Engine */
 
-const config = require("../..config.js");
+const config = require("../../config.js");
 
 const Trigger = {
     /* On Change Area
