@@ -39,7 +39,7 @@ class Admin {
     async tele(io , socket , username , coords){
         if(global.user[username].acclevel < 3) return;
         coords = (coords.split("&").length >= 2 ? coords : coords += "&1_1");
-        await Trigger["ca"](io , socket , username , coords);
+        await Trigger.ca(io , socket , username , coords);
         await this.ChatEngine.send(io, "staff", "staff", "Sistema", "Sistema", "text", "El usuario " + username + " se ah teletransportado a Map:" + coords.split("&")[0] + " pos:" + coords.split("&")[1]);
         return;
     }
