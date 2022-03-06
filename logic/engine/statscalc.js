@@ -23,7 +23,7 @@ const stats_per_attr = {
     int : {
         mp : 2,
         mgc_dmg : 1,
-        mgc_def : 0.01,
+        mgc_def : 0.1,
         crit : 0.035
     },
     luck : {
