@@ -12,16 +12,16 @@ const Trigger = {
         trigger = trigger.split("&");
         const pos = {
             map : trigger[0],
-            x : trigger[1].split("_")[0],
-            y : trigger[1].split("_")[1],
+            x : parseInt(trigger[1].split("_")[0]) * 100,
+            y : parseInt(trigger[1].split("_")[1]) * 100,
             angle : 0,
             last_step : new Date().getTime()
         };
-        const acc = await global.users[username];
+        const acc = global.users[username];
         socket.broadcast.to("map_" + acc.pos.map).emit("del_pj", username);
         delete global.world[acc.pos.map].pjs[username];
         socket.leave("map_" + acc.pos.map);
-        const _stats = await global.stats[username];
+        const _stats = global.stats[username];
         const pjstats = {
             nickname: acc.nickname,
             status: {
