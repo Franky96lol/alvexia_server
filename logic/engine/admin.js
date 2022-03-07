@@ -57,8 +57,17 @@ class Admin {
         
     }
     
-    async editTrigger(io , socket , username , trigger){
-        
+    async addTrigger(io , socket , username , trigger){
+        const acc = global.users[username];
+        const tile = Math.floor(acc.pos.x / config.WORLD.tile_size) + "_" + Math.floor(acc.pos.y / config.WORLD.tile_size);
+        global.world[acc.map].trigger[tile] = trigger;
+        await io.to(acc.map).emit("newTrigger" , {pos : tile , trigger : trigger});
+    }
+    
+    async delTrigger(io , socket , username){
+        const acc = global.users[username];
+        const tile = Math.floor(acc.pos.x / config.WORLD.tile_size) + "_" + Math.floor(acc.pos.y / config.WORLD.tile_size);
+        if(global.world[acc.map].trigger[tile]) delete global.world[acc.map].trigger[tile];
     }
 }
 module.exports = Admin;
