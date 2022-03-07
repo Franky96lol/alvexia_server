@@ -14,8 +14,8 @@ async function movement (io , socket , username) {
         data = data.split("&");
         let pos_x = parseFloat(data[0]);
         let pos_y = parseFloat(data[1]);
-        const tile_x = Math.floor(pos_x / 100);
-        const tile_y = Math.floor(pos_y / 100);
+        const tile_x = Math.floor(pos_x / config.WORLD.tile_size);
+        const tile_y = Math.floor(pos_y / config.WORLD.tile_size);
         /* Collition 
          * Objects */
         const obj = global.world[pos.map].objects[tile_x + "_" + tile_y];
