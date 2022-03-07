@@ -27,6 +27,9 @@ const config = {
         admins : ["Franky96"],
         moderators : []
     },
+    WORLD : {
+        tile_size : 100
+    },
     HERO_SIZE : "1_1",
     PSTART : {
         map : "0_0",
