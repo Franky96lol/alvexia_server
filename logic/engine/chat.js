@@ -91,15 +91,15 @@ class ChatEngine {
         }
         
         if(_ch.party != ""){
-            c["partys"] = (this.chats["partys"][_ch.party]);
+            c["party"] = (this.chats["partys"][_ch.party]);
             socket.join(_ch.party);
         }
         if(_ch.guild != "") {
-            c["guilds"] = (this.chats["guilds"][_ch.guild]);
+            c["guild"] = (this.chats["guilds"][_ch.guild]);
             socket.join(_ch.guild);
         }
         if(_ch.zone != ""){ 
-            c["zones"] = (this.chats["zones"][_ch.zone]);
+            c["zone"] = (this.chats["zones"][_ch.zone]);
             socket.join(_ch.zone);
         }
         await socket.emit("load_chat" , c);
