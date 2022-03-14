@@ -81,8 +81,8 @@ class ChatEngine {
     async loadChat(io , username , socket){
         let c = {};
         let _ch = global.users[username].chats;
-        for(let _chat of _ch.globals){
-            c["global"][_chat] = (this.chats[_chat]);
+        for(let _chat of _ch.chats){
+            c[_chat] = (this.chats[_chat]);
             socket.join(_chat);
         }
         for(let _chat of _ch.privates){
@@ -107,14 +107,14 @@ class ChatEngine {
     
     /* Join Chatroom */
     async join(io , username , room){
-        if(!global.users[username].chats.chats.includes(room)) global.users[username].chats.chats.push(room);
+        if(!global.users[username].chats.global.includes(room)) global.users[username].chats.global.push(room);
         await io.sockets[username].join(room);
     }
     
     /* Leave Chatroom */
     async leave(io , username , room){
-        if(global.users[username].chats.chats.includes(room)) {
-            global.users[username].chats.chats.splice(global.users[username].chats.chats.indexOf(room) , 1);
+        if(global.users[username].chats.global.includes(room)) {
+            global.users[username].chats.global.splice(global.users[username].chats.global.indexOf(room) , 1);
         }
         await io.sockets[username].leave(room);
     }
