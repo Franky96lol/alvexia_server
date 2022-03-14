@@ -79,22 +79,27 @@ class ChatEngine {
     
     /* Load Chats */
     async loadChat(io , username , socket){
-        let c = [];
+        let c = {};
         let _ch = global.users[username].chats;
         for(let _chat of _ch.chats){
-            c = c.concat(this.chats[_chat]);
+            c[_chat] = (this.chats[_chat]);
             socket.join(_chat);
         }
+        for(let _chat of _ch.privates){
+            c["privates"][_chat] = (this.chats["privates"][_chat]);
+            socket.join(_chat);
+        }
+        
         if(_ch.party != ""){
-            c = c.concat(this.chats["partys"][_ch.party]);
+            c["partys"] = (this.chats["partys"][_ch.party]);
             socket.join(_ch.party);
         }
         if(_ch.guild != "") {
-            c = c.concat(this.chats["guilds"][_ch.guild]);
+            c["guilds"] = (this.chats["guilds"][_ch.guild]);
             socket.join(_ch.guild);
         }
         if(_ch.zone != ""){ 
-            c = c.concat(this.chats["zones"][_ch.zone]);
+            c["zones"] = (this.chats["zones"][_ch.zone]);
             socket.join(_ch.zone);
         }
         await socket.emit("load_chat" , c);
