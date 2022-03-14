@@ -82,7 +82,7 @@ class ChatEngine {
         let c = {};
         let _ch = global.users[username].chats;
         for(let _chat of _ch.global){
-            c[_chat] = (this.chats[_chat]);
+            c["global"][_chat] = (this.chats[_chat]);
             socket.join(_chat);
         }
         for(let _chat of _ch.privates){
