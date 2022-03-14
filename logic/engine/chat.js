@@ -81,7 +81,7 @@ class ChatEngine {
     async loadChat(io , username , socket){
         let c = {};
         let _ch = global.users[username].chats;
-        for(let _chat of _ch.chats){
+        for(let _chat of _ch.global){
             c[_chat] = (this.chats[_chat]);
             socket.join(_chat);
         }
