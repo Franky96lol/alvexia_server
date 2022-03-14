@@ -217,7 +217,7 @@ async function register (req, res) {
             "system","comerce"],
             party : "",
             guild : "",
-            zone : "",
+            zone : "z0_0",
             privates : []
         },
         isOnline: false,
