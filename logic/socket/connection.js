@@ -23,6 +23,7 @@ async function connection (io, socket, username) {
         pos: acc.pos
     };
     socket.join("map_" + acc.pos.map);
+    global.users[username].chats.zone = "z" + acc.pos.map;
     socket.broadcast.to("map_" + acc.pos.map).emit("new_pj", {
         username: username, pjstats: pjstats
     });
