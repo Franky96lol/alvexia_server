@@ -213,7 +213,7 @@ async function register (req, res) {
         },
         skin : "hero_male_1",
         chats : {
-            chats : ["global",
+            global : ["global",
             "system","comerce"],
             party : "",
             guild : "",
