@@ -39,7 +39,7 @@ async function movement (io , socket , username) {
         global.world[pos.map].pjs[username].pos.y = pos_y;
         global.world[pos.map].pjs[username].pos.angle = deg;
         
-        await socket.broadcast.to("map_" + pos.map).emit("move_pj", username + "&" + pos_x + "&" + pos_y + "&" + 0);
+        await socket.broadcast.to("map_" + pos.map).emit("move_pj", username + "&" + pos_x + "&" + pos_y + "&" + deg);
         
     });
 };
