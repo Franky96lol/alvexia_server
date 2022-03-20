@@ -21,7 +21,7 @@ async function movement (io , socket , username) {
          * Objects */
         const obj = global.world[pos.map].objects[tile_x + "_" + tile_y];
         if(obj != undefined && global.users[username].acclevel < 3){
-            if(obj.type == 0){
+            if(obj.d >= 1){
                 return;
             }
         }
